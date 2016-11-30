@@ -1,0 +1,107 @@
+<odoo>
+    <data>
+		<!--密码显示-->
+		<!--<template id="assets_frontend_show_password" inherit_id="website.assets_frontend" name="Assets Frontend show password">-->
+			<!--<xpath expr="." position="inside">-->
+			  <!--<link rel='stylesheet' href='/wk_show_password/static/src/css/wk_show_password.css'/>-->
+			  <!--<script type="text/javascript" src="/wk_show_password/static/src/js/wk_show_password.js"></script>-->
+		  	<!--</xpath>-->
+    	<!--</template>-->
+
+		<template id="assets_frontend_show_password" inherit_id="web.login" name="Assets Frontend show password">
+			<xpath expr="." position="inside">
+			  <link rel='stylesheet' href='/isoft_base/static/src/css/wk_show_password.css'/>
+			  <script type="text/javascript" src="/isoft_base/static/src/js/wk_show_password.js"></script>
+		  	</xpath>
+    	</template>
+
+
+		<template id="wk_show_hide_password_2" inherit_id="web.login" name="show hide password">
+			<xpath expr="//div[@class='form-group field-password']//input" position="replace">
+				<div class="input-group">
+					<input type="password" name="password" id="password" class="form-control" required="required" t-att-autofocus="'autofocus' if login else None"/>
+					<span class="input-group-btn">
+					  <button class="btn btn-default" type="button">
+						<i class="fa fa-eye"></i>
+					  </button>
+					</span>
+				</div>
+			</xpath>
+		</template>
+
+		 <!--修改登陆背景，可根据时间自动切换背景，分早，中午，下午，晚上-->
+        <template id="login_layout" inherit_id="web.login_layout" name="Login Layout Inherit">
+    		<xpath expr="//t[@t-set='body_classname']" position="replace">
+    			<t t-set="body_classname" t-value="''"/>
+    		</xpath>
+
+    		<xpath expr="//t[@t-set='head']/link[last()]" position="inside">
+    			<link rel="stylesheet" href="/isoft_base/static/src/css/web_login_style.css"/>
+    		</xpath>
+
+    		<xpath expr="//div[@class='row']" position="attributes">
+    			<attribute name="class">body_login</attribute>
+    		</xpath>
+
+    		<xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="before">
+    			<div id="background-wrapper"
+    				t-attf-style="background-image: url('#{background_src}');"></div>
+    		</xpath>
+
+    		<xpath expr="//div[@class='col-md-6 col-md-offset-3 o_database_list']" position="attributes">
+    			<attribute name="class">col-lg-3 col-md-4 col-sm-4 col-xs-11 o_database_list</attribute>
+    		</xpath>
+
+    		<xpath expr="//div[@class='text-center']/img" position="attributes">
+    			<attribute name="class">company_logo</attribute>
+    		</xpath>
+    	</template>
+
+    	<template id="login" inherit_id="web.login" name="Login Inherit">
+    		<xpath expr="//label[@for='db']" position="replace" />
+			<xpath expr="//label[@for='login']" position="replace" />
+			<xpath expr="//label[@for='password']" position="replace" />
+
+			<xpath expr="//input[@name='login']" position="attributes">
+				<attribute name="placeholder">Email ...</attribute>
+				<attribute name="autocomplete">off</attribute>
+				<attribute name="autocorrect">off</attribute>
+			</xpath>
+
+			<xpath expr="//input[@name='password']" position="attributes">
+				<attribute name="placeholder">Password ...</attribute>
+			</xpath>
+
+			<xpath expr="//span[@class='input-group-btn']/a[@href='/web/database/selector']" position="replace">
+				<a href="/web/database/selector" class="btn btn-default btn-select"><i class="fa fa-database"></i></a>
+			</xpath>
+
+		</template>
+
+		<!--将listview 增加行号-->
+		<template id="assets_backend" name="rowno_in_tree assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+            	<script type="text/javascript" src="/isoft_base/static/src/js/list_view.js"></script>
+            </xpath>
+        </template>
+
+		<!--修改favicon图标-->
+		 <template id="layout" inherit_id="web.layout">
+            <xpath expr="//link[@rel='shortcut icon']" position="replace">
+                <link rel="icon" href="/web_favicon/favicon" />
+            </xpath>
+        </template>
+
+		<template id="assets_backend" name="web_keyboard_navigation assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/isoft_base/static/src/js/keyboard_shortcuts.js"></script>
+            </xpath>
+        </template>
+
+
+
+        <!--这里注释了，这取决于 website的登陆模块，因为目前没用，所以不需要 -->
+        <!--<delete model="ir.ui.view" search="[('id','=', ref('website.login_layout'))]"/>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inherit_blood_clinic_form" model="ir.ui.view">
+            <field name="name">mqc.blood.clinic.form.inherit</field>
+            <field name="model">mqc.blood.clinic</field>
+            <field name="inherit_id" ref="mqc.view_blood_clinic_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//div" position="inside">
+                         <table border="1" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                医疗机构名称
+                            </p>
+                        </td>
+                        <td width="156" valign="top">
+                            <p align="center">
+                                <field name="units_name" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="72" valign="top">
+                            <p align="center">
+                                填报时间
+                            </p>
+                        </td>
+                        <td width="72" valign="top">
+                            <p align="center">
+                                <field name="year_month" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="72" valign="top">
+                            <p align="center">
+                                填报者
+                            </p>
+                        </td>
+                        <td width="72" valign="top">
+                            <p align="center">
+                                √
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                出院总人数
+                            </p>
+                        </td>
+                        <td width="156" valign="bottom">
+                            <p align="center">
+                                <field name="out_case" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p align="center">
+                                用血总人数
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p align="center">
+                                <field name="use_blood_case" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                手术台数
+                            </p>
+                        </td>
+                        <td width="156" valign="top">
+                            <p align="center">
+                                <field name="opr_num" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p align="center">
+                                手术用血人数
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p align="center">
+                                <field name="opr_use_blood" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                <strong>血 液 成 分</strong>
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p align="center">
+                                本月用血量
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p align="center">
+                                本月供应有无短缺
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                全 血
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="whole_blood" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p>
+                                <field name="short_sign1" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                红细胞
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="rbc" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p>
+                                <field name="short_sign2" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                血 浆
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="plasma" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p>
+                                <field name="short_sign3" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                血小板
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="platelet" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p>
+                                <field name="short_sign4" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                冷沉淀
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="cryoprecipitate" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p>
+                                <field name="short_sign5" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                合 计
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p>
+                                <field name="total_usage" class="oe_inline"/>
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108">
+                            <p align="center">
+                                <strong>自 体 输 血</strong>
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <p align="center">
+                                自体输血量（U）
+                            </p>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <p align="center">
+                                人数
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108">
+                            <p align="center">
+                                储存式
+                            </p>
+                        </td>
+                        <td width="228" colspan="2">
+                            <field name="self_storage" class="oe_inline"/>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <field name="self_storage_case" class="oe_inline"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                回收式
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <field name="self_recycle" class="oe_inline"/>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <field name="self_recycle_case" class="oe_inline"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                稀释式
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <field name="dilution" class="oe_inline"/>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <field name="dilution_case" class="oe_inline"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="108" valign="top">
+                            <p align="center">
+                                合 计
+                            </p>
+                        </td>
+                        <td width="228" colspan="2" valign="top">
+                            <field name="total_self_usage" class="oe_inline"/>
+                        </td>
+                        <td width="216" colspan="3" valign="top">
+                            <field name="total_self_case" class="oe_inline"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="408" colspan="4" valign="top">
+                            <p>
+                                成分输血率：成分血总用量/（成分血总用量+全血用量）x100%
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p>
+                                <field name="component_rate" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="408" colspan="4" valign="top">
+                            <p>
+                                自体输血率（%）=自体输血人数/手术用血人数×100%
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <p>
+                                <field name="self_rate" class="oe_inline"/>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="408" colspan="4" valign="top">
+                            <p>
+                                住（出）院患者人均用血量：红细胞用量/住(出)院患者人数x100%
+                            </p>
+                        </td>
+                        <td width="144" colspan="2" valign="top">
+                            <div>
+                                <field name="avg_usage"/>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                    </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

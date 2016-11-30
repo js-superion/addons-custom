@@ -1,0 +1,134 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_dialysis">
+            <field name="name">血透质控指标</field>
+            <field name="res_model">mqc.dialysis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- dialysis form -->
+        <record id="view_dialysis_form" model="ir.ui.view">
+            <field name="name">mqc.dialysis.form</field>
+            <field name="model">mqc.dialysis</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <group col="2" colspan="2">
+                        <field name="dept_doc_num" class="oe_inline" />
+                        <field name="dept_nur_num" class="oe_inline" />
+                        </group>
+                        <notebook colspan="4">
+                            <page string="肾小球疾病（非CKD5期）">
+                                <group>
+                                    <field name="out_case" class="oe_inline" />
+                                    <field name="avg_charge" class="oe_inline"/>
+                                    <field name="avg_days" class="oe_inline"/>
+                                    <field name="accord_diag_case" class="oe_inline"/>
+                                    <field name="kidney_exam_case" class="oe_inline"/>
+                                    <field name="exam_complications" class="oe_inline"/>
+                                    <field name="pressure_control_case" class="oe_inline" />
+                                    <field name="iga_rate" class="oe_inline"/>
+                                    <field name="ln_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                            <page string="急性肾衰竭">
+                                <group>
+                                    <field name="out_case1" class="oe_inline" />
+                                    <field name="cured_case" class="oe_inline"/>
+                                    <field name="avg_charge1" class="oe_inline"/>
+                                    <field name="avg_days1" class="oe_inline"/>
+                                    <field name="kidney_exam_case1" class="oe_inline"/>
+                                    <field name="exam_complications1" class="oe_inline"/>
+                                    <field name="finish_cp_case" class="oe_inline" />
+                                    <field name="acpt_dialysis_case" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                             <page string=" 慢性肾衰竭CKD5期">
+                                <group>
+                                    <field name="out_case2" class="oe_inline" />
+                                    <field name="avg_charge2" class="oe_inline"/>
+                                    <field name="avg_days2" class="oe_inline"/>
+                                    <field name="acpt_pd_case" class="oe_inline"/>
+                                    <field name="acpt_iaf_case" class="oe_inline"/>
+                                    <field name="acpt_dvt_case" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                             <page string="非住院维持性血液透析">
+                                <group>
+                                    <field name="hd_num" class="oe_inline" />
+                                    <field name="hdf_num" class="oe_inline"/>
+                                    <field name="crrt_num" class="oe_inline"/>
+                                    <field name="dialysis_doc_num" class="oe_inline"/>
+                                    <field name="dialysis_nurse_num" class="oe_inline"/>
+                                    <field name="dialysis_pat_num" class="oe_inline"/>
+                                    <field name="new_pat_num" class="oe_inline" />
+                                    <field name="dead_pat" class="oe_inline"/>
+                                    <field name="total_case" class="oe_inline"/>
+                                    <field name="mohc_newpats" class="oe_inline"/>
+                                    <field name="mohc_uppats" class="oe_inline"/>
+                                    <field name="mohc_val_rate" class="oe_inline"/>
+                                    <field name="dialyzer_reuse_rate" class="oe_inline"/>
+                                    <field name="week_excess12h_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+
+
+                            <page string="非住院长期腹膜透析">
+                                <group>
+                                    <field name="create_type" class="oe_inline" />
+                                    <field name="long_pd_case" class="oe_inline"/>
+                                    <field name="pd_newpats" class="oe_inline"/>
+                                    <field name="pd_cured_case" class="oe_inline"/>
+                                    <field name="pd_death_case" class="oe_inline"/>
+                                    <field name="pd_mohc_newpats" class="oe_inline"/>
+                                    <field name="pd_mohc_uppats" class="oe_inline" />
+                                    <field name="pd_mohc_rate" class="oe_inline"/>
+                                    <field name="peritonitis_case" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_dialysis_tree" model="ir.ui.view">
+            <field name="name">mqc.dialysis.tree</field>
+            <field name="model">mqc.dialysis</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" />
+                    <field name="out_case" />
+                    <field name="avg_charge" />
+                    <field name="dept_doc_num" />
+                    <field name="dept_nur_num" />
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_dialysis_search" model="ir.ui.view">
+
+            <field name="name">mqc.dialysis.search</field>
+            <field name="model">mqc.dialysis</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dept_doc_num" />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

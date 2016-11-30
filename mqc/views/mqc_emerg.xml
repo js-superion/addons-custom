@@ -1,0 +1,191 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_emerg">
+            <field name="name">急诊质控指标</field>
+            <field name="res_model">mqc.emergency</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 图书表单视图 -->
+        <record id="view_mqc_emerg_form" model="ir.ui.view">
+            <field name="name">mqc.emergency.form</field>
+            <field name="model">mqc.emergency</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+
+                        <notebook colspan="4">
+                             <page string="一般信息">
+                                <group>
+
+                                    <label for="emerg_case"/>
+                                    <div>
+                                        <field name="emerg_case" class="oe_inline" />例
+                                    </div>
+
+                                    <label for="critical_case"/>
+                                    <div>
+                                        <field name="critical_case" class="oe_inline"/>例
+                                    </div>
+
+                                     <label for="emerg_multiple"/>
+                                     <div>
+                                        <field name="emerg_multiple" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="brain_case"/>
+                                     <div>
+                                        <field name="brain_case" class="oe_inline"/>例
+                                    </div>
+                                    <label for="shock_case"/>
+                                     <div>
+                                        <field name="shock_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="death_case"/>
+                                     <div>
+                                        <field name="death_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="infusion_case"/>
+                                     <div>
+                                        <field name="infusion_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="eicu_case"/>
+                                     <div>
+                                        <field name="eicu_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="appache_case"/>
+                                     <div>
+                                        <field name="appache_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="eicu_avg_day"/>
+                                     <div>
+                                        <field name="eicu_avg_day" class="oe_inline"/>日
+                                    </div>
+
+                                    <label for="eicu_avg_cost"/>
+                                     <div>
+                                        <field name="eicu_avg_cost" class="oe_inline"/>元
+                                    </div>
+
+                                    <label for="poison_case"/>
+                                     <div>
+                                        <field name="poison_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="alcoholism_case"/>
+                                     <div>
+                                        <field name="alcoholism_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="sedative_case"/>
+                                     <div>
+                                        <field name="sedative_case" class="oe_inline"/>例
+                                    </div>
+
+                                    <label for="mass_case"/>
+                                     <div>
+                                        <field name="mass_case" class="oe_inline"/>件
+                                    </div>
+                                </group>
+                            </page>
+                            <page string="有机磷农药中毒">
+                                <group>
+                                    <field name="yjl_poison_case"></field>
+                                    <field name="yjl_in_case"></field>
+                                    <field name="yjl_inout_confirm"/>
+                                    <field name="yjl_cure_rate"/>
+                                    <field name="yjl_death_case"/>
+                                    <field name="yjl_assist_breath"></field>
+                                    <field name="blood_clean"></field>
+                                    <field name="reactivators_first_day"/>
+                                    <field name="reactivators_last_five"/>
+                                    <field name="yjl_avg_days"/>
+                                    <field name="yjl_avg_cost"/>
+                                </group>
+                            </page>
+                            <page string="百草枯中毒">
+                                <group>
+                                    <field name="bck_poison_case"></field>
+                                    <field name="bck_in_case"></field>
+                                    <field name="bck_inout_confirm"/>
+                                    <field name="bck_cure_rate"/>
+                                    <field name="bck_death_case"/>
+                                    <field name="lavage_case"></field>
+                                    <field name="bck_assist_breath"></field>
+                                    <field name="perfusion_rate"/>
+                                    <field name="perfusion_within_four"/>
+                                    <field name="perfusion_excess4_h"/>
+                                    <field name="perfusion_excess1_h"/>
+
+                                    <field name="glucocorticoid_case"/>
+                                    <field name="depressor_case"/>
+                                    <field name="bck_avg_day"/>
+                                    <field name="bck_avg_cost"/>
+                                </group>
+                            </page>
+                            <page string="CPR术">
+                                <group>
+                                    <field name="cpr_case"></field>
+                                    <field name="cpr_in_hos"></field>
+                                    <field name="cpr_before_hos"/>
+                                    <field name="self_rescue"/>
+                                    <field name="cpc_one_two"/>
+                                    <field name="low_fever_case"></field>
+                                    <field name="cpr_within3_min"></field>
+                                    <field name="cpr_excess3_min"/>
+                                    <field name="alive_case"/>
+                                    <field name="cpr_failure"/>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_emerg_tree" model="ir.ui.view">
+            <field name="name">mqc.emergency.tree</field>
+            <field name="model">mqc.emergency</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month"/>
+                    <field name="emerg_case" sum ="共:"/>
+                    <field name="critical_case" sum ="共:"/>
+                    <field name="emerg_multiple" sum ="共:"/>
+                    <field name="brain_case" sum ="共:"/>
+                    <field name="shock_case" sum ="共:"/>
+                    <field name="death_case" sum ="共:"/>
+                    <field name="infusion_case" sum ="共:"/>
+                    <field name="eicu_case" sum ="共:"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_emerg_search" model="ir.ui.view">
+
+            <field name="name">mqc.emergency.search</field>
+            <field name="model">mqc.emergency</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="emerg_case"/>
+                    <field name="critical_case"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

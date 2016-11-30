@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <!-- =====================   发车  =================================== -->
+    <record model="ir.actions.act_window" id="act_cs_find_person">
+            <field name="name">发车</field>
+            <field name="res_model">car.departure</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+        <!-- nurse form -->
+    <record id="v_form_departure" model="ir.ui.view">
+        <field name="name">car.departure.form</field>
+        <field name="model">car.departure</field>
+        <field name="arch" type="xml">
+            <form copy="false" create="false" edit="true">
+                <sheet>
+                      <group>
+                        <field name="departure_time"/>
+                        <field name="start_point"/>
+                        <field name="end_point"/>
+                        <field name="mobile_phone"/>
+                        <field name="remark"/>
+                        <field name="details">
+                            <tree string="途经" editable="bottom">
+                                <field name="point_name"/>
+                            </tree>
+                        </field>
+                      </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <!-- 表格视图 -->
+    <record id="v_tree_departure" model="ir.ui.view">
+        <field name="name">car.departure.tree</field>
+        <field name="model">car.departure</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="start_point"/>
+                <field name="end_point"/>
+                <field name="mobile_phone"/>
+                <field name="remark"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- 查询视图-->
+    <record id="v_search_departure" model="ir.ui.view">
+        <field name="name">car.departure.search</field>
+        <field name="model">car.departure</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="start_point" />
+                <field name="end_point" />
+            </search>
+        </field>
+    </record>
+
+
+     <!-- =====================   坐车  =================================== -->
+    <record model="ir.actions.act_window" id="act_cs_find_car">
+            <field name="name">坐车</field>
+            <field name="res_model">car.seat</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+        <!-- 坐车表单 -->
+    <record id="v_form_seat" model="ir.ui.view">
+        <field name="name">car.seat.form</field>
+        <field name="model">car.seat</field>
+        <field name="arch" type="xml">
+            <form copy="false" create="false" edit="true">
+                <sheet>
+                      <group>
+                        <field name="leave_time" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 8:00:00')"/>
+                        <field name="end_point"/>
+                        <field name="wait_point"/>
+                        <field name="person_num"/>
+                        <field name="remark"/>
+                      </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <!-- 坐车表格 -->
+    <record id="v_tree_seat" model="ir.ui.view">
+        <field name="name">car.seat.tree</field>
+        <field name="model">car.seat</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="leave_time"/>
+              <field name="end_point"/>
+              <field name="wait_point"/>
+              <field name="person_num"/>
+              <field name="remark"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- 查询视图-->
+    <record id="v_search_departure" model="ir.ui.view">
+        <field name="name">car.seat.search</field>
+        <field name="model">car.seat</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="wait_point" />
+                <field name="end_point" />
+            </search>
+        </field>
+    </record>
+
+    <!-- =====================   维护途径站点================================= -->
+      <record model="ir.actions.act_window" id="act_cs_point">
+            <field name="name">途经站点</field>
+            <field name="res_model">car.point</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+        <!-- 坐车表单 -->
+    <record id="v_form_point" model="ir.ui.view">
+        <field name="name">car.point.form</field>
+        <field name="model">car.point</field>
+        <field name="arch" type="xml">
+            <form copy="false" create="false" edit="true">
+                <sheet>
+                      <group>
+                        <field name="name"/>
+                      </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <!-- 站点tree-->
+    <record id="v_tree_point" model="ir.ui.view">
+        <field name="name">car.point.tree</field>
+        <field name="model">car.point</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- 查询视图-->
+    <record id="v_search_point" model="ir.ui.view">
+        <field name="name">car.point.search</field>
+        <field name="model">car.point</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+
+    <menuitem id="m_cs" name="港城拼车"/>
+      <menuitem id="m_cs_pub" name="信息发布" parent="m_cs"/>
+        <menuitem id="m_cs_find_car" name="坐车" parent="m_cs_pub" groups="group_car_seat_user" action="act_cs_find_car"/>
+        <menuitem id="m_cs_find_person" name="发车" parent="m_cs_pub" groups="group_car_departure_user" action="act_cs_find_person"/>
+
+      <menuitem id="m_cs_cfg" name="设置" parent="m_cs"/>
+        <menuitem id="m_cs_point" name="途经站点" string="途经站点" parent="m_cs_cfg" groups="group_car_admin" action="act_cs_point"/>
+
+  </data>
+</odoo>

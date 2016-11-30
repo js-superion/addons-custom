@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+<data>
+    <template id="assets_backend" inherit_id="web.assets_backend" name="lodop">
+        <xpath expr="." position="inside">
+            <object  id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0" style="display:none">
+                   <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0"></embed>
+            </object>
+            <script type="text/javascript" src="/lodop/static/lodop/LodopFuncs.js"/>
+            <script name="js_print_global" type="text/javascript" src="/lodop/static/src/print.js"/>
+        </xpath>
+    </template>
+</data>
+</openerp>

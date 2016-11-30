@@ -1,0 +1,139 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_mouth">
+            <field name="name">口腔质控指标</field>
+            <field name="res_model">mqc.mouth</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 主界面的列表 -->
+        <record id="view_mouth_form" model="ir.ui.view">
+            <field name="name">mqc.mouth.form</field>
+            <field name="model">mqc.mouth</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="口腔质控报表">
+                                <group>
+                                    <field name="outp_case" class="oe_inline"/>
+                                    <field name="mr_acpt_rate" class="oe_inline"/>
+                                    <field name="presc_acpt_rate" class="oe_inline"/>
+                                    <field name="device_wash_rate" class="oe_inline"/>
+                                    <field name="outp_presc_rate" class="oe_inline"/>
+                                    <field name="report_disease" class="oe_inline"/>
+                                    <field name="report_tumor" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- 腮腺肿瘤 -->
+        <record id="view_mouth_tumor_form" model="ir.ui.view">
+            <field name="name">mqc.mouth.tumor.form</field>
+            <field name="model">mqc.mouth.parotid.tumor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="2">
+                            <page string="腮腺肿瘤指标">
+                                <group>
+                                    <field name="cybr_case" class="oe_inline"/>
+                                    <field name="xzlqqcs_rate" class="oe_inline"/>
+                                    <field name="sqpjzyr" class="oe_inline"/>
+                                    <field name="in_out_accord_diag_case" class="oe_inline"/>
+                                    <field name="opr_accord_diag" class="oe_inline"/>
+                                    <field name="cure_case" class="oe_inline"/>
+                                    <field name="opr_complication_case" class="oe_inline"/>
+                                    <field name="inp_avg_charge" class="oe_inline"/>
+                                    <field name="drug_ratio" class="oe_inline"/>
+                                    <field name="kyyw_drug_ratio" class="oe_inline"/>
+                                    <field name="avg_in_hos_days" class="oe_inline"/>
+
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  专科病种信息 -->
+        <record id="view_mouth_disease_form" model="ir.ui.view">
+            <field name="name">mqc.mouth.disease.form</field>
+            <field name="model">mqc.mouth.special.disease</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="专科病种指标">
+                                <group>
+                                    <field name="rcc_acpt_rate" class="oe_inline"/>
+                                    <field name="use_blood_case" class="oe_inline"/>
+                                    <field name="yzy_case" class="oe_inline"/>
+                                    <field name="yzygmpz_case" class="oe_inline"/>
+                                    <field name="yyyzl_case" class="oe_inline"/>
+                                    <field name="yyyzlhz_case" class="oe_inline"/>
+                                    <field name="kqbptxzl_case" class="oe_inline"/>
+                                    <field name="shfjhzcss_case" class="oe_inline"/>
+                                    <field name="byhcx_rate" class="oe_inline"/>
+                                    <field name="baygc_rate" class="oe_inline"/>
+                                    <field name="ycfg_rate" class="oe_inline"/>
+                                    <field name="ycjyyb_case" class="oe_inline"/>
+                                    <field name="ycjyybhg_case" class="oe_inline"/>
+                                    <field name="zqzljjysjfh_rate" class="oe_inline"/>
+                                    <field name="zqylwjwz_rate" class="oe_inline"/>
+                                    <field name="ypjj_rate" class="oe_inline"/>
+                                    <field name="blzdylczdfh_rate" class="oe_inline"/>
+                                    <field name="zyhzkjywsy_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_mouth_tree" model="ir.ui.view">
+            <field name="name">mqc.mouth.tree</field>
+            <field name="model">mqc.mouth</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month"/>
+                    <field name="outp_case"/>
+                    <field name="mr_acpt_rate"/>
+                    <field name="presc_acpt_rate"/>
+                    <field name="inp_case"/>
+                    <field name="report_tumor"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_mouth_search" model="ir.ui.view">
+
+            <field name="name">mqc.mqc.search</field>
+            <field name="model">mqc.mouth</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="create_date"/>
+                    <field name="year_month"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

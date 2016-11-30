@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_car_departure_user,name_car_departure_user,model_car_departure,group_car_departure_user,1,1,1,0
+access_car_departure_admin,name_car_departure_admin,model_car_departure,group_car_departure_user,1,1,1,1
+
+access_car_departure_detail_user,name_car_departure_detail_user,model_car_departure_detail,group_car_departure_user,1,1,1,0
+access_car_departure_detail_admin,name_car_departure_detail_admin,model_car_departure_detail,group_car_admin,1,1,1,1
+
+access_car_seat_user,name_car_seat_user,model_car_seat,group_car_departure_user,1,1,1,0
+access_car_seat_admin,name_car_seat_admin,model_car_seat,group_car_departure_user,1,1,1,1
+
+access_car_point_user,name_car_point_user,model_car_point,group_car_admin,1,1,1,1

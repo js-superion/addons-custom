@@ -1,0 +1,145 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_drug">
+            <field name="name">药事管理质控指标</field>
+            <field name="res_model">mqc.drug</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 主界面的列表 -->
+        <record id="view_mqc_drug_form" model="ir.ui.view">
+            <field name="name">mqc.drug.form</field>
+            <field name="model">mqc.drug</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="一般信息">
+                                <group>
+                                    <field name="lcypjqsl" class="oe_inline" />
+                                    <field name="ypcg_rate" class="oe_inline"/>
+                                    <field name="yplgfh_rate" class="oe_inline"/>
+                                    <field name="ygcgdf" class="oe_inline"/>
+                                    <field name="ysqmyyflyfhl" class="oe_inline"/>
+                                    <field name="ypsytyml" class="oe_inline"/>
+                                    <field name="mzcffhl" class="oe_inline" />
+                                    <field name="ptcftphgl" class="oe_inline"/>
+                                    <field name="tpypcmccl" class="oe_inline"/>
+                                    <field name="zyyppfzlwc" class="oe_inline"/>
+                                    <field name="tpypyfylbsl" class="oe_inline"/>
+                                    <field name="yjykpdwcl" class="oe_inline"/>
+                                    <field name="ejykpdwcl" class="oe_inline"/>
+                                    <field name="wzglhgl" class="oe_inline"/>
+                                    <field name="szglhgl" class="oe_inline"/>
+                                    <field name="mjypzwxfl" class="oe_inline"/>
+                                    <field name="mjypcftphgl" class="oe_inline"/>
+                                    <field name="mjzcfdpcyl" class="oe_inline"/>
+                                    <field name="dpcybls" class="oe_inline"/>
+                                    <field name="dpdcfhgl" class="oe_inline"/>
+                                    <field name="tbblfys" class="oe_inline"/>
+                                    <field name="yzypblfybgsl" class="oe_inline"/>
+                                    <field name="yzb" class="oe_inline"/>
+                                    <field name="mcjzrjyf" class="oe_inline"/>
+                                    <field name="jzsykjyw_ratio" class="oe_inline"/>
+                                    <field name="jzsyzsyw_ratio" class="oe_inline"/>
+                                    <field name="jzsyzyzsj_ratio" class="oe_inline"/>
+                                    <field name="jzsygjjbyw_ratio" class="oe_inline"/>
+                                    <field name="dldlcyxgzs_case" class="oe_inline"/>
+                                    <field name="yxzyjsry_ratio" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                            <page string="专业信息（抗菌药物）">
+                                <group>
+                                    <field name="zxkjywfjglhg_rate" class="oe_inline" />
+                                    <field name="kjywpzpghg_rate" class="oe_inline"/>
+                                    <field name="kjywcfhg_rate" class="oe_inline"/>
+                                    <field name="zyhzkjywsyl" class="oe_inline"/>
+                                    <field name="zyhzkjywsyqd" class="oe_inline"/>
+                                    <field name="zyhzrjsykjywfy" class="oe_inline"/>
+                                    <field name="kjywfyzzyf_ratio" class="oe_inline" />
+                                    <field name="kjywcfbl" class="oe_inline"/>
+                                    <field name="kzkjywcfdpgz" class="oe_inline"/>
+                                    <field name="kzqjssyfykjywdpgz" class="oe_inline"/>
+                                    <field name="tssykjywylzkjywylbfb" class="oe_inline"/>
+                                    <field name="jrsszdkjywyfsyl" class="oe_inline"/>
+                                    <field name="qjsskjywyfsyl" class="oe_inline"/>
+                                    <field name="qjssyfgyhgl" class="oe_inline"/>
+                                    <field name="qjssyfgypzhgl" class="oe_inline"/>
+                                    <field name="qjssyfgylchgl" class="oe_inline"/>
+                                    <field name="qjssyfgylhyyl" class="oe_inline"/>
+                                    <field name="zyhzkjywbyxsjl" class="oe_inline"/>
+                                    <field name="xzxsykjywbyxsjl" class="oe_inline"/>
+                                    <field name="tssykjywbyxsjl" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                            <page string="专业信息（临床药学）">
+                                <group>
+                                    <field name="zzlcyssl" class="oe_inline" />
+                                    <field name="cydkssl" class="oe_inline"/>
+                                    <field name="cygldbzsl" class="oe_inline"/>
+                                    <field name="kzbltlsl" class="oe_inline"/>
+                                    <field name="kzyyjysl" class="oe_inline"/>
+                                    <field name="kzywzxsl" class="oe_inline"/>
+                                    <field name="kzcfdpsl" class="oe_inline" />
+                                    <field name="kzyzdpsl" class="oe_inline"/>
+                                    <field name="cylchzsl" class="oe_inline"/>
+                                    <field name="kccfdpsl" class="oe_inline"/>
+                                    <field name="sxylsl" class="oe_inline"/>
+                                    <field name="sxynblyjfxsl" class="oe_inline"/>
+                                    <field name="sxyyjysl" class="oe_inline"/>
+                                    <field name="jjyyzdsl" class="oe_inline"/>
+                                    <field name="jxzlywjc" class="oe_inline"/>
+                                    <field name="tdm_pzsl" class="oe_inline"/>
+                                    <field name="lcysgzsj" class="oe_inline"/>
+                                    <field name="kzrccfgz" class="oe_inline"/>
+                                    <field name="kzkjywlcsygl" class="oe_inline"/>
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_drug_tree" model="ir.ui.view">
+            <field name="name">mqc.drug.tree</field>
+            <field name="model">mqc.drug</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" class="oe_inline"/>
+                    <field name="create_uid" class="oe_inline"/>
+                    <field name="lcypjqsl" class="oe_inline"/>
+                    <field name="ypcg_rate" class="oe_inline"/>
+                    <field name="yplgfh_rate" class="oe_inline"/>
+                    <field name="ygcgdf" class="oe_inline"/>
+                    <field name="ysqmyyflyfhl" class="oe_inline"/>
+                    <field name="ypsytyml" class="oe_inline"/>
+                    <field name="mzcffhl" class="oe_inline"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_drug_search" model="ir.ui.view">
+
+            <field name="name">mqc.drug.search</field>
+            <field name="model">mqc.drug</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="year_month"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

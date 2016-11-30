@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_pathology">
+            <field name="name">病理质控指标</field>
+            <field name="res_model">mqc.pathology</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- pathology form -->
+        <record id="view_pathology_form" model="ir.ui.view">
+            <field name="name">mqc.pathology.form</field>
+            <field name="model">mqc.pathology</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="病理数据填报">
+                                <group>
+                                    <field name="frozen_section_case"/>
+                                    <field name="elivision_case"/>
+                                    <field name="fish_case"/>
+                                    <field name="details">
+                                        <tree string="指标填写" editable="bottom">
+                                            <field name="exam_type_id"/>
+                                            <field name="outp_exam_case"/>
+                                            <field name="rpt_less5d_reach"/>
+                                            <field name="cellrpt_less2d_reach"/>
+                                            <field name="path_diag_accuracy_rate"/>
+                                            <field name="cryostat_section_diag_rate"/>
+                                            <field name="cryostat_section_less30min_rate"/>
+                                            <field name="is_review"/>
+                                            <field name="med_error_case"/>
+                                            <field name="section_total"/>
+                                            <field name="grade_a_rate"/>
+                                            <field name="grade_b_rate"/>
+                                            <field name="grade_c_rate"/>
+                                        </tree>
+
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_pathology_tree" model="ir.ui.view">
+            <field name="name">mqc.pathology.tree</field>
+            <field name="model">mqc.pathology</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" />
+                    <field name="frozen_section_case"/>
+                    <field name="elivision_case"/>
+                    <field name="fish_case"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_pathology_search" model="ir.ui.view">
+
+            <field name="name">mqc.pathology.search</field>
+            <field name="model">mqc.pathology</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="mqc_id" />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

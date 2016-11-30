@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!-- 这里定义的module_category_mqc，本意是想让groups引用，实际上groups引用的base.module_category_qmc已经存在数据库中
+            在模块安装时就存在了，所以这里定义与否，也无所谓-->
+        <!--<record id="module_category_mqc" model="ir.module.category">-->
+        <!--<field name="name">质控管理</field>-->
+        <!--<field name="description">xxxxxxxxxx</field>-->
+        <!--<field name="sequence">15</field>-->
+        <!--</record>-->
+
+        <!-- 定义急诊上报对应的两个组-->
+        <record id="group_mqc_emerg_user" model="res.groups">
+            <field name="name">急诊组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_emerg_admin" model="res.groups">
+            <field name="name">急诊管理组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4, ref('group_mqc_emerg_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+
+        <!-- 定义输血上报对应的两个组-->
+        <record id="group_mqc_blood_user" model="res.groups">
+            <field name="name">输血组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_blood_admin" model="res.groups">
+            <field name="name">输血管理组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4, ref('group_mqc_blood_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+
+
+        <!-- 定义维护医院对照对应的两个组-->
+        <record id="group_mqc_hospital_user" model="res.groups">
+            <field name="name">hos组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_hospital_admin" model="res.groups">
+            <field name="name">hos管理组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4, ref('group_mqc_hospital_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+
+        <!-- 定义维护用户对照对应的两个组-->
+        <record id="group_mqc_user_user" model="res.groups">
+            <field name="name">user组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_user_admin" model="res.groups">
+            <field name="name">user管理组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4, ref('group_mqc_user_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+
+        <record id="group_mqc_mqc_user" model="res.groups">
+            <field name="name">基础权限</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+         <record id="group_mqc_child_user" model="res.groups">
+            <field name="name">儿科用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_child_admin" model="res.groups">
+            <field name="name">儿科管理组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+
+        <record id="group_mqc_icu_user" model="res.groups">
+            <field name="name">icu用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+        <record id="group_mqc_infect_user" model="res.groups">
+            <field name="name">感染用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+         <record id="group_mqc_dialysis_user" model="res.groups">
+            <field name="name">血透用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+         <record id="group_mqc_narcosis_user" model="res.groups">
+            <field name="name">麻醉用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_nurse_user" model="res.groups">
+            <field name="name">护理用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_index_user" model="res.groups">
+            <field name="name">医疗质量用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+         <record id="group_mqc_pathology_user" model="res.groups">
+            <field name="name">病理用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+         <record id="group_mqc_pacs_user" model="res.groups">
+            <field name="name">医学影像用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_mouth_user" model="res.groups">
+            <field name="name">口腔用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_drug_user" model="res.groups">
+            <field name="name">药事管理用户组</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_print_template" model="res.groups">
+            <field name="name">lodop用户组</field>
+            <field name="category_id" ref="base.module_category_lodop"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_mqc_admin" model="res.groups">
+            <field name="name">MQC管理员</field>
+            <field name="category_id" ref="base.module_category_mqc"/>
+            <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+
+    </data>
+
+
+
+    <data noupdate="0">
+
+        <record id="rule_mqc_emerg" model="ir.rule">
+            <field name="name">mqc规则:查看急诊数据</field>
+            <field name="model_id" ref="model_mqc_emergency"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <!--<record id="rule_hr_employee" model="ir.rule">-->
+            <!--<field name="name">员工规则:查看本单位员工</field>-->
+            <!--<field name="model_id" ref="hr.model_hr_employee"/>-->
+            <!--<field name="global" eval="True"/>-->
+            <!--<field name="domain_force">[('company_id', '=', user.company_id.id)]</field>-->
+        <!--</record>-->
+
+        <!--输血质控规则-->
+        <record id="rule_mqc_blood" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据</field>
+            <field name="model_id" ref="model_mqc_blood"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+        <record id="rule_mqc_blood_clinic" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据(临床用血)</field>
+            <field name="model_id" ref="model_mqc_blood_clinic"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('units_name', '=', user.company_id.name)]</field>
+        </record>
+        <record id="rule_mqc_blood_construct" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据(输血科建设)</field>
+            <field name="model_id" ref="model_mqc_blood_construct"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('units_name', '=', user.company_id.name)]</field>
+        </record>
+        <record id="rule_mqc_blood_qlty" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据(质量反馈)</field>
+            <field name="model_id" ref="model_mqc_blood_qlty"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('units_name', '=', user.company_id.name)]</field>
+        </record>
+        <record id="rule_mqc_blood_manage" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据(输血职能)</field>
+            <field name="model_id" ref="model_mqc_blood_manage"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('units_name', '=', user.company_id.name)]</field>
+        </record>
+        <record id="rule_mqc_blood_advise" model="ir.rule">
+            <field name="name">mqc规则:查看输血数据(建议)</field>
+            <field name="model_id" ref="model_mqc_blood_advise"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('units_name', '=', user.company_id.name)]</field>
+        </record>
+
+
+        <record id="rule_mqc_dialysis" model="ir.rule">
+            <field name="name">mqc规则:查看血透数据</field>
+            <field name="model_id" ref="model_mqc_dialysis"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_drug" model="ir.rule">
+            <field name="name">mqc规则:查看药事数据</field>
+            <field name="model_id" ref="model_mqc_drug"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_icu" model="ir.rule">
+            <field name="name">mqc规则:查看ICU数据</field>
+            <field name="model_id" ref="model_mqc_icu"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_index" model="ir.rule">
+            <field name="name">mqc规则:查看医疗质量数据</field>
+            <field name="model_id" ref="model_mqc_index"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_infect" model="ir.rule">
+            <field name="name">mqc规则:查看院感数据</field>
+            <field name="model_id" ref="model_mqc_infect"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_mouth" model="ir.rule">
+            <field name="name">mqc规则:查看口腔数据</field>
+            <field name="model_id" ref="model_mqc_mouth"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_narcosis" model="ir.rule">
+            <field name="name">mqc规则:查看麻醉数据</field>
+            <field name="model_id" ref="model_mqc_narcosis"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+        <record id="rule_mqc_nurse" model="ir.rule">
+            <field name="name">mqc规则:查看护理数据</field>
+            <field name="model_id" ref="model_mqc_nurse"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+         <record id="rule_mqc_pacs" model="ir.rule">
+            <field name="name">mqc规则:查看影像数据</field>
+            <field name="model_id" ref="model_mqc_pacs"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+
+        <record id="rule_mqc_pathology" model="ir.rule">
+            <field name="name">mqc规则:查看病理数据</field>
+            <field name="model_id" ref="model_mqc_pathology"/>
+            <!--<field name="groups" eval="[(4, ref('group_mqc_merg_user'))]"/>-->
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+         <record id="rule_mqc_child" model="ir.rule">
+            <field name="name">mqc规则:查看儿科数据</field>
+            <field name="model_id" ref="model_mqc_child"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
+        </record>
+
+
+    </data>
+
+</odoo>

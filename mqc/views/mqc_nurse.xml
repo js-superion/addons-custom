@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_nurse">
+            <field name="name">护理质控指标</field>
+            <field name="res_model">mqc.nurse</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- nurse form -->
+        <record id="view_nurse_form" model="ir.ui.view">
+            <field name="name">mqc.nurse.form</field>
+            <field name="model">mqc.nurse</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="护理数据填报">
+                                <group>
+                                    <field name="nurse_detail">
+                                        <tree string="上报指标填写" editable="bottom">
+                                            <field name="company_id"/>
+                                            <field name="fct_bed_days"/>
+                                            <field name="bedsore_case"/>
+                                            <field name="inevitable_bedsore_case"/>
+                                            <field name="predict_case"/>
+                                            <field name="unpredict_case"/>
+                                            <field name="bring_in_case"/>
+                                            <field name="per_hundred_rate"/>
+                                            <field name="mis_inhaling"/>
+                                            <field name="wrong_dose_rate"/>
+                                            <field name="fall_rate"/>
+                                            <field name="unplanned_extubation"/>
+                                        </tree>
+
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_nurse_tree" model="ir.ui.view">
+            <field name="name">mqc.nurse.tree</field>
+            <field name="model">mqc.nurse</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" />
+                    <field name="create_uid" />
+                    <field name="create_date" />
+                    <field name="nurse_detail" />
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_nurse_search" model="ir.ui.view">
+
+            <field name="name">mqc.nurse.search</field>
+            <field name="model">mqc.nurse</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="mqc_id" />
+                    <field name="year_month" />
+                    <field name="mqc_id" />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

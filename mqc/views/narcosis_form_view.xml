@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inherit_mqc_narcosis_form" model="ir.ui.view">
+            <field name="name">mqc.narcosis.form.inherit</field>
+            <field name="model">mqc.narcosis</field>
+            <field name="inherit_id" ref="mqc.view_mqc_narcosis_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div" position="inside">
+                    <table border="1" cellpadding="0" cellspacing="0" width="746">
+                        <colgroup>
+                            <col width="67"/>
+                            <col width="68"/>
+                            <col width="72"/>
+                            <col width="72"/>
+                            <col width="68"/>
+                            <col width="67" span="4"/>
+                            <col width="131"/>
+                        </colgroup>
+                        <tbody>
+                            <tr height="23">
+                                <td colspan="10" rowspan="2" height="46" width="746">
+                                    连云港市麻醉质控中心医疗质量信息报表(月报)
+                                </td>
+                            </tr>
+                            <tr height="23">
+                            </tr>
+                            <tr height="22">
+                                <td colspan="7" height="22" width="481">
+                                    一、手术室内麻醉数（例次）
+                                </td>
+                                <td colspan="3" width="265">
+                                    　
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    ASA分级手术病人麻醉数
+                                </td>
+                            </tr>
+                            <tr height="19">
+                                <td rowspan="2" height="41" width="67">
+                                    麻醉总数
+                                </td>
+                                <td rowspan="2" width="68">
+                                    Ⅰ级
+                                </td>
+                                <td rowspan="2" width="72">
+                                    Ⅱ级
+                                </td>
+                                <td rowspan="2" width="72">
+                                    Ⅰ-Ⅱ级
+                                    <br/>
+                                    所占比例%
+                                </td>
+                                <td rowspan="2" width="68">
+                                    Ⅲ级
+                                </td>
+                                <td rowspan="2" width="67">
+                                    Ⅳ级
+                                </td>
+                                <td rowspan="2" width="67">
+                                    Ⅴ级
+                                </td>
+                                <td rowspan="2" width="67">
+                                    Ⅲ-Ⅴ级
+                                    <br/>
+                                    所占比例%
+                                </td>
+                                <td colspan="2" width="198">
+                                    E（急诊手术）
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    例数
+                                </td>
+                                <td width="131">
+                                    所占比例%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field1" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field2" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field3" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field4" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field5" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field6" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field7" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field8" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field9" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field10" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    麻醉分类数
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="5" height="22" width="347">
+                                    全身麻醉数
+                                </td>
+                                <td colspan="2" width="134">
+                                    椎管内麻醉数
+                                </td>
+                                <td rowspan="2" width="67">
+                                    管内麻醉术硬膜外
+                                </td>
+                                <td rowspan="2" width="67">
+                                    MAC麻醉术
+                                </td>
+                                <td rowspan="2" width="131">
+                                    其他
+                                    <br/>
+                                    麻醉数
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    全麻总数
+                                </td>
+                                <td width="68">
+                                    吸入全麻
+                                </td>
+                                <td width="72">
+                                    静脉全麻
+                                </td>
+                                <td width="72">
+                                    静吸复合
+                                </td>
+                                <td width="68">
+                                    联合麻醉
+                                </td>
+                                <td width="67">
+                                    腰麻
+                                </td>
+                                <td width="67">
+                                    腰硬联合
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field11" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field12" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field13" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field14" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field15" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field16" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field17" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field18" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field19" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field20" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    专科麻醉数
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    脑外科
+                                </td>
+                                <td colspan="2" width="144">
+                                    胸外科
+                                </td>
+                                <td colspan="2" width="135">
+                                    心血管外科
+                                </td>
+                                <td colspan="2" width="134">
+                                    小儿外科
+                                </td>
+                                <td colspan="2" width="198">
+                                    产科
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    <field name="field21" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="144">
+                                    <field name="field22" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="135">
+                                    <field name="field23" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field24" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="198">
+                                    <field name="field25" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    二、手术室外麻醉与镇痛数-手术室外麻醉与MAC数（例次）
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="6" height="22" width="414">
+                                    有创或无创检查
+                                </td>
+                                <td rowspan="2" width="67">
+                                    介入手术治疗
+                                </td>
+                                <td rowspan="2" width="67">
+                                    人流手术
+                                </td>
+                                <td rowspan="2" width="67">
+                                    分娩镇痛
+                                </td>
+                                <td rowspan="2" width="131">
+                                    其他
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    胃肠道
+                                </td>
+                                <td colspan="2" width="144">
+                                    呼吸系统
+                                </td>
+                                <td colspan="2" width="135">
+                                    其他
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    <field name="field26" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="144">
+                                    <field name="field27" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="135">
+                                    <field name="field28" class="oe_inline"/>
+                                </td>
+                                <td  width="67">
+                                    <field name="field29" class="oe_inline"/>
+                                </td>
+                                <td  width="67">
+                                    <field name="field30" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field31" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field32" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    三、收住、诊治病人数（例次）
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="6" height="22" width="414">
+                                    收住病人
+                                </td>
+                                <td colspan="4" width="332">
+                                    诊治病人
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    PACU
+                                </td>
+                                <td colspan="2" width="144">
+                                    AICU
+                                </td>
+                                <td colspan="2" width="135">
+                                    疼痛病房
+                                </td>
+                                <td colspan="4" width="332">
+                                    疼痛门诊
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22">
+                                    <field name="field33" class="oe_inline"/>
+                                </td>
+                                <td colspan="2">
+                                    <field name="field34" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="135">
+                                    <field name="field35" class="oe_inline"/>
+                                </td>
+                                <td colspan="4" width="332">
+                                    <field name="field36" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    四、麻醉成功率(例次/%)
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="3" height="22" width="207">
+                                    神经(含神经丛)阻滞成功率
+                                </td>
+                                <td colspan="3" width="207">
+                                    硬膜外阻滞成功率
+                                </td>
+                                <td colspan="4" width="332">
+                                    困难气道处理成功率
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    成功例数
+                                </td>
+                                <td width="68">
+                                    同期总数
+                                </td>
+                                <td width="72">
+                                    成功率%
+                                </td>
+                                <td width="72">
+                                    成功例数
+                                </td>
+                                <td width="68">
+                                    同期总数
+                                </td>
+                                <td width="67">
+                                    成功率%
+                                </td>
+                                <td width="67">
+                                    成功例数
+                                </td>
+                                <td colspan="2" width="134">
+                                    同期总数
+                                </td>
+                                <td width="131">
+                                    成功率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field37" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field38" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field39" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field40" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field41" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field42" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field43" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field44" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field45" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    五、麻醉死亡率、并发症发生率(例次/%)
+                                </td>
+                            </tr>
+                            <tr height="21">
+                                <td colspan="3" height="21" width="207">
+                                    麻醉相关死亡率
+                                </td>
+                                <td colspan="3" width="207">
+                                    有创性麻醉操作感染发生率
+                                </td>
+                                <td colspan="4" width="332">
+                                    椎管内麻醉神经并发症发生率
+                                </td>
+                            </tr>
+                            <tr height="32">
+                                <td height="32" width="67">
+                                    死亡例数
+                                </td>
+                                <td width="68">
+                                    同期麻醉总数
+                                </td>
+                                <td width="72">
+                                    死亡率%
+                                </td>
+                                <td width="72">
+                                    感染例数
+                                </td>
+                                <td width="68">
+                                    同期操作总数
+                                </td>
+                                <td width="67">
+                                    感染率%
+                                </td>
+                                <td width="67">
+                                    发生例数
+                                </td>
+                                <td colspan="2" width="134">
+                                    同期椎管内麻醉总数
+                                </td>
+                                <td width="131">
+                                    发生率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field46" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field47" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field48" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field49" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field50" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field51" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field52" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field53" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field54" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="3" height="22" width="207">
+                                    有创性监测操作感染发生率
+                                </td>
+                                <td colspan="3" width="207">
+                                    腰麻后头痛发生率
+                                </td>
+                                <td colspan="4" width="332">
+                                    硬膜外麻醉硬脊膜穿破发生率
+                                </td>
+                            </tr>
+                            <tr height="32">
+                                <td height="32" width="67">
+                                    感染例数
+                                </td>
+                                <td width="68">
+                                    同期操作总数
+                                </td>
+                                <td width="72">
+                                    感染率%
+                                </td>
+                                <td width="72">
+                                    头痛例数
+                                </td>
+                                <td width="68">
+                                    同期腰麻总数
+                                </td>
+                                <td width="67">
+                                    发生率%
+                                </td>
+                                <td width="67">
+                                    发生例数
+                                </td>
+                                <td colspan="2" width="134">
+                                    同期硬膜外麻醉总数
+                                </td>
+                                <td width="131">
+                                    发生率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field55" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field56" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field57" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field58" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field59" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field60" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field61" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field62" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field63" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="21">
+                                <td colspan="3" height="21" width="207">
+                                    苏醒延迟发生率
+                                </td>
+                                <td colspan="3" width="207">
+                                    全麻术中知晓发生率
+                                </td>
+                                <td colspan="4" width="332">
+                                    硬膜外麻醉血管损伤发生率
+                                </td>
+                            </tr>
+                            <tr height="34">
+                                <td height="34" width="67">
+                                    发生例数
+                                </td>
+                                <td width="68">
+                                    同期全麻总数
+                                </td>
+                                <td width="72">
+                                    发生率%
+                                </td>
+                                <td width="72">
+                                    发生例数
+                                </td>
+                                <td width="68">
+                                    同期全麻例数
+                                </td>
+                                <td width="67">
+                                    发生率%
+                                </td>
+                                <td width="67">
+                                    发生例数
+                                </td>
+                                <td colspan="2" width="134">
+                                    同期硬膜外麻醉总数
+                                </td>
+                                <td width="131">
+                                    发生率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field64" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field65" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field66" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field67" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field68" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field69" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field70" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field71" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field72" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="21">
+                                <td colspan="3" height="21" width="207">
+                                    麻醉期间心跳骤停发生率
+                                </td>
+                                <td colspan="3" width="207">
+                                    自体血回收率
+                                </td>
+                                <td colspan="4" rowspan="3" width="332">
+                                    　
+                                </td>
+                            </tr>
+                            <tr height="32">
+                                <td height="32" width="67">
+                                    发生例数
+                                </td>
+                                <td width="68">
+                                    同期全麻总数
+                                </td>
+                                <td width="72">
+                                    发生率%
+                                </td>
+                                <td width="72">
+                                    回收例数
+                                </td>
+                                <td width="68">
+                                    同期全麻总数
+                                </td>
+                                <td width="67">
+                                    回收率%
+                                </td>
+                            </tr>
+                            <tr height="45">
+                                <td height="45" width="67">
+                                    <field name="field73" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field74" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field75" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field76" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field77" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field78" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    六、术前评估与术后随访率(例次/%)
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="3" height="22" width="207">
+                                    麻醉前访视记录
+                                </td>
+                                <td colspan="3" width="207">
+                                    麻醉后访视记录
+                                </td>
+                                <td colspan="4" width="332">
+                                    术后镇痛率
+                                </td>
+                            </tr>
+                            <tr height="48">
+                                <td height="48" width="67">
+                                    麻醉前访视记录例数
+                                </td>
+                                <td width="68">
+                                    同期麻醉总数
+                                </td>
+                                <td width="72">
+                                    访视率%
+                                </td>
+                                <td width="72">
+                                    麻醉后随访记录例数
+                                </td>
+                                <td width="68">
+                                    同期麻醉总数
+                                </td>
+                                <td width="67">
+                                    随访率%
+                                </td>
+                                <td width="67">
+                                    镇痛例数
+                                </td>
+                                <td colspan="2" width="134">
+                                    同期麻醉总数
+                                </td>
+                                <td width="131">
+                                    镇痛率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field79" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field80" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field81" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field82" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field83" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field84" class="oe_inline"/>
+                                </td>
+                                <td width="67">
+                                    <field name="field85" class="oe_inline"/>
+                                </td>
+                                <td width="134" colspan="2">
+                                    <field name="field86" class="oe_inline"/>
+                                </td>
+                                <td width="131">
+                                    <field name="field87" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="3" height="22" width="207">
+                                    麻醉知情同意书
+                                </td>
+                                <td colspan="3" rowspan="3" width="207">
+                                    　
+                                </td>
+                                <td colspan="4" rowspan="3" width="332">
+                                    　
+                                </td>
+                            </tr>
+                            <tr height="32">
+                                <td height="32" width="67">
+                                    签同意书例数
+                                </td>
+                                <td width="68">
+                                    同期麻醉总数
+                                </td>
+                                <td width="72">
+                                    签订率%
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field88" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field89" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field90" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    七、手术台及床位设置（台张）- 手术台及床位数
+                                </td>
+                            </tr>
+                            <tr height="40">
+                                <td colspan="3" height="40" width="207">
+                                    手术台数(台)手术室内
+                                    <br/>
+                                    实际使用台数
+                                </td>
+                                <td colspan="3" width="207">
+                                    手术台数(台)手术室外
+                                    <br/>
+                                    实际使用台数
+                                </td>
+                                <td colspan="2" width="134">
+                                    床位数(张)
+                                    <br/>
+                                    麻醉后监护室(PACU)
+                                </td>
+                                <td colspan="2" width="198">
+                                    床位数(张)
+                                    <br/>
+                                    麻醉科疼痛病房
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="3" height="22" width="207">
+                                    <field name="field91" class="oe_inline"/>
+                                </td>
+                                <td colspan="3" width="207">
+                                    <field name="field92" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field93" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="198">
+                                    <field name="field94" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    八、医师、护士与手术台比例
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" rowspan="2" height="53" width="135">
+                                    临床麻醉医师总人数(不含ICU及疼痛医师)
+                                </td>
+                                <td rowspan="2" width="72">
+                                    手术台与医师总数比例
+                                </td>
+                                <td rowspan="2" width="72">
+                                    主治医师以上人员数
+                                </td>
+                                <td colspan="2" rowspan="2" width="135">
+                                    手术台与主治医师以上人员比例
+                                </td>
+                                <td colspan="2" rowspan="2" width="134">
+                                    临床麻醉护士总人数(不含ICU及疼痛护士)
+                                </td>
+                                <td colspan="2" rowspan="2" width="198">
+                                    手术台与护士比例
+                                </td>
+                            </tr>
+                            <tr height="31">
+                            </tr>
+                            <tr height="22">
+                                <td colspan="2" height="22" width="135">
+                                    <field name="field95" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field96" class="oe_inline"/>
+                                </td>
+                                <td width="72">
+                                    <field name="field97" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="135">
+                                    <field name="field98" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field99" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="198">
+                                    <field name="field100" class="oe_inline"/>
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td colspan="10" height="22" width="746">
+                                    八、收费统计（%）
+                                </td>
+                            </tr>
+                            <tr height="48">
+                                <td height="48" width="67">
+                                    药品占医疗收入百分比
+                                </td>
+                                <td width="68">
+                                    麻醉科总收入(亿)
+                                </td>
+                                <td colspan="2" width="144">
+                                    医用材料占医疗收入百分比
+                                </td>
+                                <td colspan="2" width="135">
+                                    医院总收入（亿）
+                                </td>
+                                <td colspan="2" width="134">
+                                    AICU抗生素占药品费用比
+                                </td>
+                                <td colspan="2" width="198">
+                                    麻醉科总收入占医院总收入百分比（%）
+                                </td>
+                            </tr>
+                            <tr height="22">
+                                <td height="22" width="67">
+                                    <field name="field101" class="oe_inline"/>
+                                </td>
+                                <td width="68">
+                                    <field name="field102" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="144">
+                                    <field name="field103" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="135">
+                                    <field name="field104" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="134">
+                                    <field name="field105" class="oe_inline"/>
+                                </td>
+                                <td colspan="2" width="198">
+                                    <field name="field106" class="oe_inline"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

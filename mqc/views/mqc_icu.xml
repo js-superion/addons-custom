@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_icu">
+            <field name="name">ICU质控指标</field>
+            <field name="res_model">mqc.icu</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- icu form -->
+        <record id="view_emrg_form" model="ir.ui.view">
+            <field name="name">mqc.icu.form</field>
+            <field name="model">mqc.icu</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                             <page string="指标填写">
+                                <group>
+                                    <field name="treated_rate" class="oe_inline" />
+                                    <field name="apache2_excess15" class="oe_inline"/>
+                                    <field name="joint_rounds" class="oe_inline"/>
+                                    <field name="exam_rate" class="oe_inline"/>
+                                    <field name="dvt_prevent" class="oe_inline"/>
+                                    <field name="mortality" class="oe_inline"/>
+
+                                    <field name="predict_mortality" class="oe_inline" />
+                                    <field name="std_mortality" class="oe_inline"/>
+                                    <field name="unplanned_extubation" class="oe_inline"/>
+                                    <field name="intubation_within48h" class="oe_inline"/>
+                                    <field name="return_within48h" class="oe_inline"/>
+                                    <field name="vpa_rate" class="oe_inline"/>
+                                    <field name="crbsi_rate" class="oe_inline"/>
+                                    <field name="cauti_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_icu_tree" model="ir.ui.view">
+            <field name="name">mqc.icu.tree</field>
+            <field name="model">mqc.icu</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" />
+                    <field name="treated_rate" />
+                    <field name="apache2_excess15" />
+                    <field name="joint_rounds" />
+                    <field name="exam_rate" />
+                    <field name="dvt_prevent" />
+                    <field name="mortality" />
+                    <field name="predict_mortality" />
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_icu_search" model="ir.ui.view">
+
+            <field name="name">mqc.icu.search</field>
+            <field name="model">mqc.icu</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="treated_rate"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

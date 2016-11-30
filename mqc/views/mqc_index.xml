@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_index">
+            <field name="name">医疗质量指标</field>
+            <field name="res_model">mqc.index</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- index form -->
+        <record id="view_mqc_index_form" model="ir.ui.view">
+            <field name="name">mqc.index.form</field>
+            <field name="model">mqc.index</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="医疗质量数据填报">
+                                <group>
+                                    <field name="outpat_capacity"/>
+                                    <field name="discharged_case"/>
+                                    <field name="accord_diag_case"/>
+                                    <field name="rescue_rate"/>
+                                    <field name="avg_adm_days"/>
+                                    <field name="bed_use_rate"/>
+                                    <field name="mr_grade_a_rate"/>
+
+                                    <field name="opr_three_four"/>
+                                    <field name="unplanned_opr_two"/>
+                                    <field name="antibiotics_use_rate" class="oe_inline"/>
+                                    <field name="cp_disease"/>
+
+                                    <field name="dispute_case"/>
+                                    <field name="attacked_case"/>
+
+                                    <field name="protect_pat1" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="protect_pat2" widget="radio" options="{'horizontal': True}"/>
+                                    <field name="protect_pat3" widget="radio" options="{'horizontal': True}"/>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_index_tree" model="ir.ui.view">
+            <field name="name">mqc.index.tree</field>
+            <field name="model">mqc.index</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" />
+                    <field name="outpat_capacity" />
+                    <field name="discharged_case" />
+                    <field name="accord_diag_case" />
+                    <field name="rescue_rate" />
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_index_search" model="ir.ui.view">
+
+            <field name="name">mqc.index.search</field>
+            <field name="model">mqc.index</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="outpat_capacity" />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

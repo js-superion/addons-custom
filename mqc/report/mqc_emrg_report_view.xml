@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="graph_mqc_emrg" model="ir.ui.view">
+            <field name="model">mqc.emergency.graph</field>
+            <field name="model">mqc.emergency</field>
+            <field name="arch" type="xml">
+                <graph string="急诊指标分析(图形)" type="line">
+                    <field name="year_month" type="col"/>
+                    <field name="emerg_case" type="measure" operator="+"/>
+                    <!--<field name="emerg_multiple" type="measure" operator="+"/>-->
+                    <!--<field name="brain_case" type="measure" operator="+"/>-->
+                    <!--<field name="shock_case" type="measure" operator="+"/>-->
+                </graph>
+            </field>
+        </record>
+
+         <record id="graph_mqc_pivot" model="ir.ui.view">
+            <field name="name">mqc.emergency.pivot</field>
+            <field name="model">mqc.emergency</field>
+            <field name="arch" type="xml">
+                <pivot string="急诊指标分析(透视图)" disable_linking="True">
+                    <field name="year_month" type="col"/>
+                    <field name="emerg_case" type="measure" />
+                </pivot>
+            </field>
+        </record>
+
+         <record id="action_mqc_emrg_report" model="ir.actions.act_window">
+           <field name="name">急诊指标分析</field>
+           <field name="res_model">mqc.emergency</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">pivot,graph,gantt</field>
+           <field name="domain">[]</field>
+         </record>
+
+
+    </data>
+</openerp>

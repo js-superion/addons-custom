@@ -1,0 +1,252 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_infect">
+            <field name="name">院感质控指标</field>
+            <field name="res_model">mqc.infect</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 主界面的列表 -->
+        <record id="view_infect_form" model="ir.ui.view">
+            <field name="name">mqc.infect.form</field>
+            <field name="model">mqc.infect</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="医院感染发生情况">
+                                <group>
+                                    <field name="out_case" class="oe_inline"/>
+                                    <field name="infect_pat" class="oe_inline"/>
+                                    <field name="infect_rate" class="oe_inline"/>
+                                    <field name="infect_cases" class="oe_inline"/>
+                                    <field name="infect_cases_rate" class="oe_inline"/>
+                                    <field name="part_ids" class="oe_inline">
+                                        <tree string="感染部位明细" editable="bottom">
+                                            <field name="part_id"/>
+                                            <field name="infect_cases"/>
+                                        </tree>
+                                        <form string="感染部位">
+                                            <group>
+                                                <field name="infect_cases"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                    <field name="hand_ids" class="oe_inline">
+                                        <tree string="手卫生监测" editable="bottom">
+                                            <field name="staff_type"/>
+                                            <field name="monitor_num"/>
+                                            <field name="std_times"/>
+                                            <field name="fct_times"/>
+                                            <field name="correct_times"/>
+                                        </tree>
+                                        <form string="手卫生监测">
+                                            <group>
+                                                <field name="monitor_num"/>
+                                                <field name="std_times"/>
+                                                <field name="fct_times"/>
+                                                <field name="correct_times"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                    <field name="env_ids" class="oe_inline">
+                                        <tree string="环境卫生监测" editable="bottom">
+                                            <field name="sample_id"/>
+                                            <field name="monitor_num"/>
+                                            <field name="accept_num"/>
+                                            <field name="accept_rate"/>
+                                        </tree>
+                                        <form string="环境卫生监测">
+                                            <group>
+                                                <field name="monitor_num"/>
+                                                <field name="accept_num"/>
+                                                <field name="accept_rate"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                    <field name="infect_icu_id" class="oe_inline"/>
+                                    <field name="devices_ids" class="oe_inline">
+                                        <tree string="器械相关感染监测" editable="bottom">
+                                            <field name="device_id"/>
+                                            <field name="in_days"/>
+                                            <field name="use_days"/>
+                                            <field name="use_rate"/>
+                                            <field name="infect_pat"/>
+                                            <field name="infect_rate"/>
+                                            <field name="infect_cases"/>
+                                            <field name="infect_cases_rate"/>
+                                        </tree>
+                                        <form string="器械相关感染监测">
+                                            <group>
+                                                <field name="in_days"/>
+                                                <field name="use_days"/>
+                                                <field name="use_rate"/>
+                                                <field name="infect_pat"/>
+                                                <field name="infect_rate"/>
+                                                <field name="infect_cases"/>
+                                                <field name="infect_cases_rate"/>
+                                            </group>
+                                        </form>
+                                    </field>
+
+                                    <field name="ssi_id" class="oe_inline"/>
+                                    <field name="rbm_ids" class="oe_inline">
+                                        <tree string="耐药菌监测" editable="bottom">
+                                            <field name="bacteria_id"/>
+                                            <field name="bacteria_num"/>
+                                        </tree>
+                                        <form string="耐药菌监测">
+                                            <group>
+                                                <field name="bacteria_id"/>
+                                                <field name="bacteria_num"/>
+                                            </group>
+                                        </form>
+                                    </field>
+
+                                    <field name="ill_id" class="oe_inline"/>
+                                    <field name="break_id" class="oe_inline"/>
+                                    <field name="edu_id" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 现患率调查 -->
+        <record id="view_infect_ill_form" model="ir.ui.view">
+            <field name="name">mqc.infect.ill.form</field>
+            <field name="model">mqc.infect.ill</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="2">
+                            <page string="现患率调查">
+                                <group>
+                                    <field name="std_num" class="oe_inline"/>
+                                    <field name="fct_num" class="oe_inline"/>
+                                    <field name="fct_rate" class="oe_inline"/>
+                                    <field name="ill_num" class="oe_inline"/>
+                                    <field name="ill_rate" class="oe_inline"/>
+                                    <field name="ill_case" class="oe_inline"/>
+                                    <field name="ill_case_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  手术部位感染监测 -->
+        <record id="view_infect_ssi_form" model="ir.ui.view">
+            <field name="name">mqc.infect.ssi.form</field>
+            <field name="model">mqc.infect.ssi</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="手术部位感染监测">
+                                <group>
+                                    <field name="opr_num" class="oe_inline"/>
+                                    <field name="site_infect_cases" class="oe_inline"/>
+                                    <field name="site_infect_rate" class="oe_inline"/>
+                                    <field name="opr1_num" class="oe_inline"/>
+                                    <field name="opr1_incision_case" class="oe_inline"/>
+                                    <field name="opr1_incision_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  医院感染暴发情况 -->
+        <record id="view_infect_break_form" model="ir.ui.view">
+            <field name="name">mqc.infect.break.form</field>
+            <field name="model">mqc.infect.break</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="医院感染暴发情况">
+                                <group>
+                                    <field name="std_num" class="oe_inline"/>
+                                    <field name="fct_num" class="oe_inline"/>
+                                    <field name="fct_rate" class="oe_inline"/>
+                                    <field name="ill_num" class="oe_inline"/>
+                                    <field name="ill_rate" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--  继续教育情况 -->
+        <record id="view_infect_edu_form" model="ir.ui.view">
+            <field name="name">mqc.infect.edu.form</field>
+            <field name="model">mqc.infect.edu</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="继续教育情况">
+                                <group>
+                                    <field name="country_pro" class="oe_inline"/>
+                                    <field name="country_other" class="oe_inline"/>
+                                    <field name="province_pro" class="oe_inline"/>
+                                    <field name="province_other" class="oe_inline"/>
+                                    <field name="city_pro" class="oe_inline"/>
+                                    <field name="city_other" class="oe_inline"/>
+                                    <field name="exam_num" class="oe_inline"/>
+                                    <field name="avg_scores" class="oe_inline"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_infect_tree" model="ir.ui.view">
+            <field name="name">mqc.infect.tree</field>
+            <field name="model">mqc.infect</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month" class="oe_inline"/>
+                    <field name="out_case" class="oe_inline"/>
+                    <field name="infect_pat" class="oe_inline"/>
+                    <field name="infect_rate" class="oe_inline"/>
+                    <field name="infect_cases" class="oe_inline"/>
+                    <field name="infect_cases_rate" class="oe_inline"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_infect_search" model="ir.ui.view">
+
+            <field name="name">mqc.infect.search</field>
+            <field name="model">mqc.infect</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="create_date"/>
+                    <field name="out_case"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

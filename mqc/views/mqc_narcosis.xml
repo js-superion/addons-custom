@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_narcosis">
+            <field name="name">麻醉质控指标</field>
+            <field name="res_model">mqc.narcosis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 主界面的列表 -->
+        <record id="view_mqc_narcosis_form" model="ir.ui.view">
+            <field name="name">mqc.narcosis.form</field>
+            <field name="model">mqc.narcosis</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="麻醉质控数据填报">
+                                <div>
+
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="view_mqc_narcosis_tree" model="ir.ui.view">
+            <field name="name">mqc.narcosis.tree</field>
+            <field name="model">mqc.narcosis</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_month"/>
+                    <field name="field1" class="oe_inline"/>
+                    <field name="field2" class="oe_inline"/>
+                    <field name="field3" class="oe_inline"/>
+                    <field name="field4" class="oe_inline"/>
+                    <field name="field5" class="oe_inline"/>
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_narcosis_search" model="ir.ui.view">
+
+            <field name="name">mqc.narcosis.search</field>
+            <field name="model">mqc.narcosis</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="year_month"/>
+                    <field name="field1"/>
+                    <field name="field2"/>
+                    <field name="field3"/>
+                    <field name="field4"/>
+                    <field name="field5"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

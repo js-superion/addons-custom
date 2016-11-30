@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--<record id="graph_mqc_blood" model="ir.ui.view">-->
+        <!--<field name="model">mqc.blood.graph</field>-->
+        <!--<field name="model">mqc.blood</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<graph string="临床用血(图形)" type="line">-->
+        <!--<field name="year_month" type="col"/>-->
+        <!--<field name="emerg_case" type="measure" operator="+"/>-->
+        <!--</graph>-->
+        <!--</field>-->
+        <!--</record>-->
+
+
+        <record id="action_mqc_blood_clinic_report" model="ir.actions.act_window">
+            <field name="name">全院临床用血</field>
+            <field name="res_model">mqc.blood.clinic</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+        </record>
+        <record id="pivot_mqc_blood" model="ir.ui.view">
+            <field name="name">mqc.blood.pivot</field>
+            <field name="model">mqc.blood.clinic</field>
+            <field name="arch" type="xml">
+                <pivot string="全院临床用血(透视图)" disable_linking="True">
+                    <field name="create_uid" type="col"/>
+                    <field name="create_date" type="col"/>
+                    <field name="out_case" type="measure" operator="+"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="action_mqc_blood_construct_report" model="ir.actions.act_window">
+            <field name="name">输血科建设与技术</field>
+            <field name="res_model">mqc.blood.construct</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+        </record>
+        <record id="pivot_mqc_blood" model="ir.ui.view">
+            <field name="name">mqc.blood.pivot</field>
+            <field name="model">mqc.blood.construct</field>
+            <field name="arch" type="xml">
+                <pivot string="输血科建设与技术(透视图)" disable_linking="True">
+                    <field name="create_uid" type="col"/>
+                    <field name="create_date" type="col"/>
+                    <field name="dept_emp_num" type="measure" operator="+"/>
+                </pivot>
+            </field>
+        </record>
+
+
+
+        <record id="action_mqc_blood_qlty_report" model="ir.actions.act_window">
+            <field name="name">血液成分质量</field>
+            <field name="res_model">mqc.blood.qlty</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+        </record>
+        <record id="pivot_mqc_blood" model="ir.ui.view">
+            <field name="name">mqc.blood.qlty.pivot</field>
+            <field name="model">mqc.blood.qlty</field>
+            <field name="arch" type="xml">
+                <pivot string="血液成分质量(透视图)" disable_linking="True">
+                    <field name="create_uid" type="col"/>
+                    <field name="create_date" type="col"/>
+                    <field name="detail_ids" type="measure" operator="+"/>
+                </pivot>
+            </field>
+        </record>
+
+
+
+        <record id="action_mqc_blood_manage_report" model="ir.actions.act_window">
+            <field name="name">输血职能管理</field>
+            <field name="res_model">mqc.blood.manage</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <record id="pivot_mqc_blood" model="ir.ui.view">
+            <field name="name">mqc.blood.manage.pivot</field>
+            <field name="model">mqc.blood.manage</field>
+            <field name="arch" type="xml">
+                <pivot string="输血职能管理(透视图)" disable_linking="True">
+                    <field name="year_month" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+
+
+        <record id="action_mqc_blood_advise_report" model="ir.actions.act_window">
+            <field name="name">临床用血安全与建议</field>
+            <field name="res_model">mqc.blood.advise</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[]</field>
+        </record>
+        <record id="pivot_mqc_blood" model="ir.ui.view">
+            <field name="name">mqc.blood.advise.pivot</field>
+            <field name="model">mqc.blood.advise</field>
+            <field name="arch" type="xml">
+                <pivot string="临床用血安全与建议(透视图)" disable_linking="True">
+                    <field name="create_uid" type="col"/>
+                </pivot>
+            </field>
+        </record>
+    </data>
+</openerp>

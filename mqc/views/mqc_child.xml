@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="action_mqc_child">
+            <field name="name">儿科质控指标</field>
+            <field name="res_model">mqc.child</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- child form -->
+        <record id="view_child_form" model="ir.ui.view">
+            <field name="name">mqc.child.form</field>
+            <field name="model">mqc.child</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <notebook colspan="1">
+                            <page string="儿科数据填报">
+                                <group>
+
+                                    <field name="mzrs"/>
+                                    <field name="jzrs"/>
+                                    <field name="jzwzbqjs"/>
+                                    <field name="jztjrys"/>
+                                    <field name="myzzyrs"/>
+                                    <field name="zybrlcljzls"/>
+                                    <field name="lcljrjs"/>
+                                    <field name="lcljrjl"/>
+                                    <field name="child_ids">
+                                        <tree string="病种指标" editable="bottom">
+                                            <field name="disease_name"/>
+                                            <field name="outp_case"/>
+                                            <field name="adm_case"/>
+                                            <field name="zqgfyrs"/>
+                                            <field name="zytfyrs"/>
+                                            <field name="cure_rate"/>
+                                            <field name="cbl"/>
+                                            <field name="out_hos_avg_days"/>
+                                            <field name="out_hos_avg_cost"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- child tree -->
+        <record id="view_mqc_child_tree" model="ir.ui.view">
+            <field name="name">mqc.child.tree</field>
+            <field name="model">mqc.child</field>
+            <field name="arch" type="xml">
+                <tree copy="false">
+                    <field name="year_month" />
+                    <field name="mzrs" />
+                    <field name="jzrs" />
+                    <field name="jzwzbqjs" />
+                    <field name="jztjrys" />
+                    <field name="myzzyrs" />
+                    <field name="lcljrjs" />
+                </tree>
+
+            </field>
+
+        </record>
+
+        <!-- 查询视图-->
+        <record id="view_mqc_child_search" model="ir.ui.view">
+
+            <field name="name">mqc.child.search</field>
+            <field name="model">mqc.child</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="year_month" />
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
