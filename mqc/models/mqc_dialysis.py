@@ -27,7 +27,7 @@ class Dialysis(models.Model):
     out_case1 = fields.Integer(u'出院病人数')
     cured_case = fields.Integer(u'治愈好转例数')
     avg_charge1 = fields.Float(u'出院者平均医疗费用')
-    avg_days1 = fields.Integer(u'出院者平均住院日')
+    avg_days1 = fields.Float(u'出院者平均住院日')
     kidney_exam_case1 = fields.Integer(u'肾活检患者数')
     exam_complications1 = fields.Integer(u'肾活检术后并发症例数')
     finish_cp_case = fields.Integer(u'开展完成临床路径例数')#cp clinic pathway
@@ -36,7 +36,7 @@ class Dialysis(models.Model):
     #慢性肾衰竭CKD5期
     out_case2 = fields.Integer(u'出院病人数')
     avg_charge2 = fields.Float(u'出院者平均医疗费用')
-    avg_days2 = fields.Integer(u'出院者平均住院日')
+    avg_days2 = fields.Float(u'出院者平均住院日')
     acpt_pd_case = fields.Integer(u'接受腹透管置入术患者数')
     acpt_iaf_case = fields.Integer(u'接受动静脉内瘘成形术患者数')#Internal arteriovenous fistula
     acpt_dvt_case = fields.Integer(u'接受血透长期深静脉导管置入患者数')#cp acpt accept缩写 dvt 深静脉置入

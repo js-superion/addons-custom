@@ -175,11 +175,11 @@
             <field name="domain_force">[('mqc_id.company_id', '=', user.company_id.id)]</field>
         </record>
 
-        <!--<record id="rule_hr_employee" model="ir.rule">-->
+        <!--<record id="rule_hr_employees" model="ir.rule">-->
             <!--<field name="name">员工规则:查看本单位员工</field>-->
             <!--<field name="model_id" ref="hr.model_hr_employee"/>-->
-            <!--<field name="global" eval="True"/>-->
-            <!--<field name="domain_force">[('company_id', '=', user.company_id.id)]</field>-->
+            <!--<field eval="True" name="global"/>-->
+            <!--<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>-->
         <!--</record>-->
 
         <!--输血质控规则-->

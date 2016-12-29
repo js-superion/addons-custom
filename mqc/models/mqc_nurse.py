@@ -38,7 +38,7 @@ class NurseDetail(models.Model):
                              default=lambda self: self.env.user.company_id.name, )
     units_code = fields.Char(u'单位编码',
                              default=lambda self: self.env.user.company_id.units_code)
-    fct_bed_days = fields.Integer(u'患者实际占用总床日数')
+    fct_bed_days = fields.Float(u'患者实际占用总床日数')
     bedsore_case = fields.Float(u'住院患者压疮发生总例数')
     inevitable_bedsore_case = fields.Integer(u'审核符合难免压疮例数') #inevitable难免
     predict_case= fields.Integer(u'院内预期压疮发生例数')

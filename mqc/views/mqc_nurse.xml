@@ -21,7 +21,6 @@
                                 <group>
                                     <field name="nurse_detail">
                                         <tree string="上报指标填写" editable="bottom">
-                                            <field name="company_id"/>
                                             <field name="fct_bed_days"/>
                                             <field name="bedsore_case"/>
                                             <field name="inevitable_bedsore_case"/>

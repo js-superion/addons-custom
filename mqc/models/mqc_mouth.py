@@ -36,23 +36,23 @@ class MouthSpecial(models.Model):
     _rec_name = 'year_month'
     year_month = fields.Char(u'年月', default=lambda self: self.env['utils'].get_zero_time().strftime('%Y-%m'))
     # 专科病种信息
-    rcc_acpt_rate = fields.Integer(u'根管治疗合格率(%)', )  # root canal recurrence
-    use_blood_case = fields.Integer(u'乳牙根管治疗合格率(%)', )
+    rcc_acpt_rate = fields.Float(u'根管治疗合格率(%)', )  # root canal recurrence
+    use_blood_case = fields.Float(u'乳牙根管治疗合格率(%)', )
     yzy_case = fields.Integer(u'牙周炎治疗例数', )
     yzygmpz_case = fields.Integer(u'牙周炎根面平整例数', )
     yyyzl_case = fields.Integer(u'牙龈炎治疗例数', )
     yyyzlhz_case = fields.Char(u'牙龈炎治疗好转例数', )
     kqbptxzl_case = fields.Integer(u'口腔扁平苔藓治疗例数', )
     shfjhzcss_case = fields.Char(u'术后非计划再次手术例数', )
-    byhcx_rate = fields.Integer(u'拔牙后出血率(%)', )
+    byhcx_rate = fields.Float(u'拔牙后出血率(%)', )
     baygc_rate = fields.Char(u'拔牙后干槽率(%)', )
     ycfg_rate = fields.Integer(u'义齿返工率(%)', )
     ycjyyb_case = fields.Char(u'义齿基牙预备数', )
-    ycjyybhg_case = fields.Integer(u'义齿基牙预备合格数', )
+    ycjyybhg_case = fields.Float(u'义齿基牙预备合格数', )
     zqzljjysjfh_rate = fields.Char(u'正畸治疗计划与实际完成符合率(%)', )
-    zqylwjwz_rate = fields.Integer(u'正畸医疗文件的完整率(%)', )
-    ypjj_rate = fields.Integer(u'牙片甲级率(%)', )
-    blzdylczdfh_rate = fields.Integer(u'病理诊断与临床诊断符合率(%)', )
+    zqylwjwz_rate = fields.Float(u'正畸医疗文件的完整率(%)', )
+    ypjj_rate = fields.Float(u'牙片甲级率(%)', )
+    blzdylczdfh_rate = fields.Float(u'病理诊断与临床诊断符合率(%)', )
     zyhzkjywsy_rate = fields.Float(u'住院患者抗菌药物使用率(%)', )
 
 class MouthTumor(models.Model):

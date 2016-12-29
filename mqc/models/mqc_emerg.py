@@ -108,7 +108,7 @@ class Emergency(models.Model):
     bck_inout_confirm = fields.Integer(
         u'入出院诊断符合数',
     )
-    bck_cure_rate = fields.Integer(
+    bck_cure_rate = fields.Float(
         u'好转率(%)',
     )
     bck_death_case = fields.Integer(

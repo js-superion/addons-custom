@@ -16,7 +16,7 @@ class CarDeparture(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
+        if not vals.get('name') or vals.get('name', 'New'):
             vals['name'] = self.env['ir.sequence'].next_by_code('car.departure') or '/'
         return super(CarDeparture, self).create(vals)
 
@@ -40,6 +40,7 @@ class CarSeat (models.Model):
     name = fields.Char(u'单号', required=True, index=True, copy=False, default='New')
     mobile_phone = fields.Char(u'手机')
     leave_time = fields.Datetime(u'时间')
+    start_point = fields.Many2one('car.point', u'起点')
     end_point = fields.Many2one('car.point',u'终点')
     wait_point = fields.Many2one('car.point',u'候车点')
     person_num = fields.Integer(u'人数')
@@ -47,7 +48,7 @@ class CarSeat (models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
+        if not vals.get('name') or vals.get('name', 'New'):
             vals['name'] = self.env['ir.sequence'].next_by_code('car.seat') or '/'
         return super(CarSeat, self).create(vals)
 

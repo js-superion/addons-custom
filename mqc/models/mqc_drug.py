@@ -12,17 +12,17 @@ class Drug(models.Model):
 
     #1、一 般信息：
     lcypjqsl = fields.Integer(u'临床药品紧缺数量')
-    ypcg_rate = fields.Integer(u'药品采供率(%)')
+    ypcg_rate = fields.Float(u'药品采供率(%)')
     yplgfh_rate = fields.Float(u'一品两规符合率(%)')
     ygcgdf = fields.Float(u'阳光采购得分')
-    ysqmyyflyfhl = fields.Integer(u'医师签名与药房留样符合率(%)')
+    ysqmyyflyfhl = fields.Float(u'医师签名与药房留样符合率(%)')
     ypsytyml = fields.Float(u'药品使用通用名率(%)')
     mzcffhl = fields.Float(u'门诊处方复核率(%)')
-    ptcftphgl = fields.Integer(u'普通处方调配合格率(%)')
+    ptcftphgl = fields.Float(u'普通处方调配合格率(%)')
     tpypcmccl = fields.Float(u'调配药品的出门差错率(%)')
     zyyppfzlwc = fields.Float(u'中药饮片配方总量误差率(%)') #
     tpypyfylbsl = fields.Float(u'调配药品用法用量标识率(%)') #
-    yjykpdwcl = fields.Integer(u'一级药库盘点误差率(%)')
+    yjykpdwcl = fields.Float(u'一级药库盘点误差率(%)')
     ejykpdwcl = fields.Float(u'二级药库盘点误差率(%)')
     wzglhgl = fields.Float(u'“五专”管理合格率(%)')
     szglhgl = fields.Float(u'"四专"管理合格率(%)')

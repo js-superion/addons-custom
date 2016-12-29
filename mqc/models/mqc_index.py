@@ -15,11 +15,11 @@ class Index(models.Model):
     discharged_case = fields.Integer(u'出院人数')
     accord_diag_case = fields.Float(u'出入院诊断符合率(%)')
     rescue_rate = fields.Float(u'抢救成功率(%)')
-    avg_adm_days = fields.Integer(u'平均住院天数')
+    avg_adm_days = fields.Float(u'平均住院天数')
     bed_use_rate = fields.Float(u'床位使用率(%)')
     mr_grade_a_rate = fields.Float(u'甲级病案率(%)') #mr medical record
     #2、专项指标：
-    opr_three_four = fields.Integer(u'四/三级手术率（三/二级医院）(%)')
+    opr_three_four = fields.Float(u'四/三级手术率（三/二级医院）(%)')
     unplanned_opr_two = fields.Float(u'非计划二次手术率/例')
     antibiotics_use_rate = fields.Float(u'抗菌药物使用率/强度') #antibiotics抗生素
     cp_disease = fields.Float(u'临床路径开展病种数/例数') #cp clinic path
