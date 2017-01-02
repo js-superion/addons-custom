@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
-from openerp.exceptions import ValidationError
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 class Mouth(models.Model):
     _name = "mqc.mouth"
     _description = u'口腔质控'

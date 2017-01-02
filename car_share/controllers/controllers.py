@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import http
+from odoo import http
 
 # class CarShare(http.Controller):
 #     @http.route('/car_share/car_share/', auth='public')

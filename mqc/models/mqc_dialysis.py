@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields,api
+from odoo import models, fields,api
 
 class Dialysis(models.Model):
     _name = "mqc.dialysis" #dialysis 透析

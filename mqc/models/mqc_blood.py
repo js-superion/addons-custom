@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
-from openerp.exceptions import ValidationError
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 class BloodClinic(models.Model):
     _name = "mqc.blood.clinic"
     _description = u'全院临床用血情况'

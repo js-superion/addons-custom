@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields,api
+from odoo import models, fields,api
 import datetime, pytz
-from openerp.exceptions import ValidationError
+from odoo.exceptions import ValidationError
 class Pathology(models.Model):
     _name = "mqc.pathology"
     _description = u'病理质控指标'

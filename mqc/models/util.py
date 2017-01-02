@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime, pytz
-from openerp import models, fields,api
+from odoo import models, fields,api
 class utils(models.Model):
     # def __init__(self,name):
     #     self.name = name;

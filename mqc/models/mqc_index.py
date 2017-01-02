@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields,api
+from odoo import models, fields,api
 
 class Index(models.Model):
     _name = "mqc.index" #index 医疗质量指标

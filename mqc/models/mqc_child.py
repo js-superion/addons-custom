@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from openerp import api
-from openerp import models, fields
+from odoo import api
+from odoo import models, fields
 
 class Child(models.Model):
     _name = "mqc.child" #child 儿科
