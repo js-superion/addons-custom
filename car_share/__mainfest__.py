@@ -24,10 +24,10 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/car_security.xml',
+        'security/ir.model.access.csv',
         'views/car_share.xml',
         'views/car_share_sequence.xml',
-        'security/car_security.xml',
         'security/ir.model.access.csv',
     ],
     # only loaded in demonstration mode
