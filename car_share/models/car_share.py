@@ -7,8 +7,8 @@ class CarDeparture(models.Model):
     _description = u"发车"
     name = fields.Char(u'单号', required=True, index=True, copy=False, default='New')
     departure_time = fields.Datetime(u'时间')
-    start_point= fields.Many2one('car.point',u'起点')
-    end_point = fields.Many2one('car.point',u'终点')
+    start_point= fields.Many2one('car.point',u'起点',ondelete='restrict')
+    end_point = fields.Many2one('car.point',u'终点',ondelete='restrict')
     seat_num = fields.Integer(u'座位')
     mobile_phone = fields.Char(u'手机')
     remark = fields.Char(u'备注')
@@ -40,9 +40,9 @@ class CarSeat (models.Model):
     name = fields.Char(u'单号', required=True, index=True, copy=False, default='New')
     mobile_phone = fields.Char(u'手机')
     leave_time = fields.Datetime(u'时间')
-    start_point = fields.Many2one('car.point', u'起点')
-    end_point = fields.Many2one('car.point',u'终点')
-    wait_point = fields.Many2one('car.point',u'候车点')
+    start_point = fields.Many2one('car.point', u'起点',ondelete='restrict')
+    end_point = fields.Many2one('car.point',u'终点',ondelete='restrict')
+    wait_point = fields.Many2one('car.point',u'候车点',ondelete='restrict')
     person_num = fields.Integer(u'人数')
     remark = fields.Char(u'备注')
 
