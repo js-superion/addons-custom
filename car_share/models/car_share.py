@@ -33,6 +33,11 @@ class CarPoint(models.Model):
     _name = 'car.point'
     _description = u'站点名称'
     name = fields.Char(u'站点名称')
+    _sql_constraints = [
+        ('name_uniq',
+         'UNIQUE (name)',
+         u'名称已存在')
+    ]
 
 class CarSeat (models.Model):
     _name = 'car.seat'
