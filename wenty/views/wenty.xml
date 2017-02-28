@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- =====================   全国区域表  =================================== -->
+        <record model="ir.actions.act_window" id="act_wenty_range">
+            <field name="name">派送区域表</field>
+            <field name="res_model">wenty.range</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- nurse form -->
+        <record id="form_wenty_range" model="ir.ui.view">
+            <field name="name">wenty.range.form</field>
+            <field name="model">wenty.range</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="province"/>
+                                <field name="city"/>
+                                <field name="county"/>
+                                <field name="partner_name"/>
+                                <field name="phone"/>
+                                <field name="in_range"/>
+
+                            </group>
+                            <group>
+
+                                <field name="out_range"/>
+                                <field name="remark"/>
+                                <field name="area_small"/>
+                                <field name="area_manager"/>
+                                <field name="manager_phone"/>
+                                <field name="area_large"/>
+                                <field name="area_province"/>
+                            </group>
+
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 表格视图 -->
+        <record id="tree_wenty_range" model="ir.ui.view">
+            <field name="name">wenty.range.tree</field>
+            <field name="model">wenty.range</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
+                    <field name="partner_name"/>
+                    <field name="phone"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- 查询视图-->
+        <record id="search_wenty_range" model="ir.ui.view">
+            <field name="name">wenty.range.search</field>
+            <field name="model">wenty.range</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="area_small"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- =====================   采集导入各个系统的订单信息  =================================== -->
+        <record model="ir.actions.act_window" id="act_wenty_manage_order">
+            <field name="name">订单采集</field>
+            <field name="res_model">wenty.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- 订单表单 -->
+        <record id="form_wenty_range" model="ir.ui.view">
+            <field name="name">wenty.order.form</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <form copy="false" create="false" edit="true">
+                    <sheet>
+                        <group>
+                            <group string="商品信息">
+                                <field name="name"/>
+                                <field name="product_name"/>
+                                <field name="spec"/>
+                                <field name="amount"/>
+                                <field name="charges"/>
+
+                            </group>
+                            <group string="买家信息">
+                                <field name="payment"/>
+                                <field name="receiver"/>
+                                <field name="receiver_phone"/>
+                                <field name="province"/>
+                                <field name="city"/>
+                                <field name="county"/>
+                                <field name="street"/>
+                                <field name="group_time"/>
+                            </group>
+                            <group string="快递信息">
+
+                                <field name="sender"/>
+                                <field name="sender_phone"/>
+                                <field name="promise_time"/>
+                                <field name="area_small"/>
+                                <field name="area_manager"/>
+                                <field name="manager_phone"/>
+                                <field name="area_large"/>
+                                <field name="area_province"/>
+                            </group>
+
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 订单表格 -->
+        <record id="tree_wenty_order" model="ir.ui.view">
+            <field name="name">wenty.order.tree</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <button  type="object" widget="widgetonbutton"/>
+                <tree>
+                    <field name="product_name"/>
+                    <!--<field name="spec"/>-->
+                    <!--<field name="amount"/>-->
+                    <!--<field name="charges"/>-->
+                    <!--<field name="payment"/>-->
+                    <field name="receiver"/>
+                    <field name="receiver_phone"/>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
+                    <field name="street"/>
+                    <field name="area_small"/>
+                    <button  type="object" widget="widgetonbutton"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- 订单查询-->
+        <record id="search_wenty_order" model="ir.ui.view">
+            <field name="name">wenty.order.search</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="receiver"/>
+                    <field name="sender"/>
+                </search>
+            </field>
+        </record>
+
+
+        <menuitem id="m_wenty" name="文泰打单助手"/>
+        <menuitem id="m_wenty_base" name="信息维护" parent="m_wenty"/>
+        <menuitem id="m_wenty_base_range" name="派送区域表" parent="m_wenty_base" groups="group_wenty_range_user"
+                  action="act_wenty_range"/>
+
+        <menuitem id="m_wenty_manage" name="订单管理" parent="m_wenty"/>
+        <menuitem id="m_wenty_manage_order" name="订单采集" parent="m_wenty_manage" groups="group_wenty_range_user"
+                  action="act_wenty_manage_order"/>
+
+        <!--<menuitem id="m_cs_find_person" name="发车" parent="m_cs_pub" groups="group_car_departure_user" action="act_cs_find_person"/>-->
+
+        <!--<menuitem id="m_wenty_" name="设置" parent="m_cs"/>-->
+        <!--<menuitem id="m_cs_point" name="途经站点" string="途经站点" parent="m_cs_cfg" groups="group_car_admin" action="act_cs_point"/>-->
+
+    </data>
+</odoo>

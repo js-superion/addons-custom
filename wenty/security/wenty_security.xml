@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="group_wenty_range_user" model="res.groups">
+            <field name="name">全国区域表</field>
+            <field name="category_id" ref="base.module_category_wenty"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_wenty_order_user" model="res.groups">
+            <field name="name">订单处理</field>
+            <field name="category_id" ref="base.module_category_wenty"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+    </data>
+
+</odoo>

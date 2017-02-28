@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wenty_range,name_wenty_range,model_wenty_range,group_wenty_range_user,1,1,1,1
+access_wenty_order,name_wenty_order,model_wenty_order,group_wenty_order_user,1,1,1,1
