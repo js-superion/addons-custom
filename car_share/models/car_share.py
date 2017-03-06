@@ -80,6 +80,14 @@ class CarSeat (models.Model):
             vals['name'] = self.env['ir.sequence'].next_by_code('car.seat') or '/'
         return super(CarSeat, self).create(vals)
 
+    @api.returns('self', lambda value: value.id)
+    @api.multi
+    def action_cancel(self,**kwargs):
+        new_phone = kwargs.get("mobile_phone")
+        count = self.write({'mobile_phone': new_phone})
+        car_seat_value= self.env['car.seat'].search([('id', '=', 1)])
+        count2 = count
+        return car_seat_value
 
     @api.returns('self')
     def default_car_seat_get(self):
