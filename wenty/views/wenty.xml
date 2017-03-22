@@ -6,6 +6,7 @@
             <field name="name">派送区域表</field>
             <field name="res_model">wenty.range</field>
             <field name="view_type">form</field>
+            <field name="limit">90</field>
             <field name="view_mode">tree,form</field>
         </record>
 
@@ -57,6 +58,8 @@
                     <field name="province"/>
                     <field name="city"/>
                     <field name="county"/>
+                    <field name="area_small"/>
+                    <field name="area_manager"/>
                     <field name="partner_name"/>
                     <field name="phone"/>
                 </tree>
@@ -69,19 +72,78 @@
             <field name="model">wenty.range</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="name"/>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
                     <field name="area_small"/>
+                    <field name="name"/>
+                    <field name="county"/>
+                    <field name="city"/>
                 </search>
             </field>
         </record>
 
 
-        <!-- =====================   采集导入各个系统的订单信息  =================================== -->
+        <!-- =====================   采集导入各个系统的订单信息，默认查找当天未处理的订单  =================================== -->
+
+        <!-- 订单查询-->
+        <record id="search_wenty_order" model="ir.ui.view">
+            <field name="name">wenty.order.search</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="date_ranger"/>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
+                    <field name="area_small"/>
+                    <field name="name"/>
+                    <field name="receiver"/>
+                    <field name="sender"/>
+
+                    <filter name="today" string="今天"  domain="[('create_date', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),('create_date', '&lt;=', time.strftime('%Y-%m-%d 23:59:59'))]"/>
+                    <separator/>
+                    <filter name="status_new" string="新导入" domain="[('status', '=', '0')]"/>
+                    <filter name="status_fail" string="未生成" domain="[('status', '=', '1')]"/>
+                    <filter name="status_suc" string="已生成" domain="[('status', '=', '2')]"/>
+                    <filter name="status_all" string="全部" domain="[('status', 'in', ['0','1','2'])]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- 订单表格 -->
+        <record id="tree_wenty_order" model="ir.ui.view">
+            <field name="name">wenty.order.tree</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <tree  default_order="area_small" decoration-danger=" status=='1'" decoration-bf="status=='0'" decoration-info="status=='2'">
+                    <field name="product_name"/>
+                    <field name="payment"/>
+                    <field name="receiver"/>
+                    <field name="receiver_phone"/>
+                    <field name="province"/>
+                    <field name="city"/>
+                    <field name="county"/>
+                    <field name="street"/>
+                    <field name="full_address"/>
+                    <field name="area_small"/>
+                    <field name="status" invisible="1"/>
+                    <field name="create_date_yy" string="导入日期" />
+                    <!--<button  type="object" widget="widgetonbutton"/>-->
+                </tree>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="act_wenty_manage_order">
             <field name="name">订单采集</field>
             <field name="res_model">wenty.order</field>
             <field name="view_type">form</field>
+            <field name="limit">40</field>
+            <field name="search_view_id" ref="search_wenty_order"/>
+            <field name="view_id" ref="tree_wenty_order"/>
+            <field name="domain">[('status', 'in', ['0','1','2'])]</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_today': 1}</field>
         </record>
 
 
@@ -109,6 +171,7 @@
                                 <field name="city"/>
                                 <field name="county"/>
                                 <field name="street"/>
+                                <field name="full_address"/>
                                 <field name="group_time"/>
                             </group>
                             <group string="快递信息">
@@ -121,6 +184,7 @@
                                 <field name="manager_phone"/>
                                 <field name="area_large"/>
                                 <field name="area_province"/>
+                                <field name="create_date"/>
                             </group>
 
                         </group>
@@ -130,57 +194,135 @@
             </field>
         </record>
 
-        <!-- 订单表格 -->
-        <record id="tree_wenty_order" model="ir.ui.view">
+
+
+         <!-- =====================   订单汇总表，针对已处理的有效订单  =================================== -->
+
+         <!-- 汇总查询-->
+        <record id="stat_wenty_order" model="ir.ui.view">
+            <field name="name">wenty.order.search.stat</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="today" string="今天"  domain="[('create_date', '&gt;=', time.strftime('%Y-%m-%d 00:00:00')),('create_date', '&lt;=', time.strftime('%Y-%m-%d 23:59:59'))]"/>
+
+                    <separator/>
+                    <filter name="status_new" string="新导入" domain="[('status', '=', 0)]"/>
+                    <filter name="status_fail" string="未生成" domain="[('status', '=', 1)]"/>
+                    <filter name="status_suc" string="已生成" domain="[('status', '=', 2)]"/>
+                    <filter name="status_all" string="全部" domain="[('status', 'in', ['0','1','2'])]"/>
+                    <separator/>
+                    <group expand="0" string="汇总">
+                        <filter string="按品名" domain="[]" context="{'group_by': 'product_name'}"/>
+                        <filter string="按省" domain="[]" context="{'group_by': 'province'}"/>
+                        <filter string="按市" domain="[]" context="{'group_by': 'city'}"/>
+                        <filter string="按县" domain="[]" context="{'group_by': 'county'}"/>
+                        <filter string="分拨中心" domain="[]" context="{'group_by': 'area_small'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- 汇总列表 -->
+        <record id="tree_wenty_order_stat" model="ir.ui.view">
             <field name="name">wenty.order.tree</field>
             <field name="model">wenty.order</field>
             <field name="arch" type="xml">
-                <button  type="object" widget="widgetonbutton"/>
-                <tree>
+                <tree copy="false" create="false">
                     <field name="product_name"/>
-                    <!--<field name="spec"/>-->
-                    <!--<field name="amount"/>-->
-                    <!--<field name="charges"/>-->
-                    <!--<field name="payment"/>-->
+                    <field name="payment"/>
                     <field name="receiver"/>
-                    <field name="receiver_phone"/>
                     <field name="province"/>
                     <field name="city"/>
                     <field name="county"/>
                     <field name="street"/>
+                    <field name="full_address"/>
                     <field name="area_small"/>
-                    <button  type="object" widget="widgetonbutton"/>
+                    <field name="status" invisible="1"/>
                 </tree>
             </field>
         </record>
 
-        <!-- 订单查询-->
-        <record id="search_wenty_order" model="ir.ui.view">
-            <field name="name">wenty.order.search</field>
+        <record model="ir.actions.act_window" id="act_wenty_order_stat">
+            <field name="name">订单汇总</field>
+            <field name="res_model">wenty.order</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="stat_wenty_order"/>
+            <field name="view_id" ref="tree_wenty_order_stat"/>
+            <field name="limit">80</field>
+            <field name="domain">[('status', 'in', ['0','1','2'])]</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_today': 1}</field>
+
+        </record>
+
+        <!-- ===================================   订单分析图表和透视图  =================================== -->
+        <record id="graph_wenty_order_chart" model="ir.ui.view">
+            <field name="model">wenty.order.graph</field>
             <field name="model">wenty.order</field>
             <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="receiver"/>
-                    <field name="sender"/>
-                </search>
+                <graph string="订单分析(图形)" type="line">
+                    <field name="province" type="col"/>
+                    <field name="charges" type="measure" operator="+"/>
+                    <!--<field name="emerg_multiple" type="measure" operator="+"/>-->
+                    <!--<field name="brain_case" type="measure" operator="+"/>-->
+                    <!--<field name="shock_case" type="measure" operator="+"/>-->
+                </graph>
             </field>
         </record>
 
+         <record id="graph_wenty_order_pivot" model="ir.ui.view">
+            <field name="name">wenty.order.pivot</field>
+            <field name="model">wenty.order</field>
+            <field name="arch" type="xml">
+                <pivot string="订单分析(透视图)" disable_linking="True">
+                    <field name="province" type="col"/>
+                    <field name="charges" type="measure" />
+                </pivot>
+            </field>
+        </record>
 
-        <menuitem id="m_wenty" name="文泰打单助手"/>
-        <menuitem id="m_wenty_base" name="信息维护" parent="m_wenty"/>
+         <record id="act_wenty_order_analysis" model="ir.actions.act_window">
+           <field name="name">订单分析</field>
+           <field name="res_model">wenty.order</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">pivot,graph,gantt</field>
+           <field name="domain">[]</field>
+         </record>
+
+
+
+        <!-- ===================================   菜单部分  =================================== -->
+
+        <menuitem id="m_wenty" name="泰文订单管理"/>
+        <menuitem id="m_wenty_base" name="基础数据" parent="m_wenty"/>
         <menuitem id="m_wenty_base_range" name="派送区域表" parent="m_wenty_base" groups="group_wenty_range_user"
                   action="act_wenty_range"/>
 
-        <menuitem id="m_wenty_manage" name="订单管理" parent="m_wenty"/>
+        <menuitem id="m_wenty_manage" name="日常业务" parent="m_wenty"/>
         <menuitem id="m_wenty_manage_order" name="订单采集" parent="m_wenty_manage" groups="group_wenty_range_user"
                   action="act_wenty_manage_order"/>
 
-        <!--<menuitem id="m_cs_find_person" name="发车" parent="m_cs_pub" groups="group_car_departure_user" action="act_cs_find_person"/>-->
+        <menuitem id="m_wenty_stat" name="查询统计" parent="m_wenty"/>
+        <menuitem id="m_wenty_order_stat" name="订单汇总" parent="m_wenty_stat" groups="group_wenty_range_user" action="act_wenty_order_stat"/>
+        <menuitem id="m_wenty_order_analysis" name="订单分析" parent="m_wenty_stat" groups="group_wenty_range_user"
+                  action="act_wenty_order_analysis"/>
 
-        <!--<menuitem id="m_wenty_" name="设置" parent="m_cs"/>-->
-        <!--<menuitem id="m_cs_point" name="途经站点" string="途经站点" parent="m_cs_cfg" groups="group_car_admin" action="act_cs_point"/>-->
+        <!-- ===================================   Server Action  =================================== -->
+        <record id="get_area_server_action" model="ir.actions.server">
+            <field name="name">生成(片区/地址)</field>
+            <field name="model_id" ref="model_wenty_order"/>
+            <field name="state">code</field>
+            <field name="code">records.get_area_name()</field>
+        </record>
+
+        <record id="action_wenty_get_area" model="ir.values">
+            <field name="name">片区</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.server,' +str(ref('get_area_server_action'))" />
+            <field name="key">action</field>
+            <field name="model">wenty.order</field>
+        </record>
+
 
     </data>
 </odoo>
