@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="view_inherit_hr_applicant_form" inherit_id="website_hr_recruitment.apply"
+              name="Custom Applicant Form">
+        <xpath expr="//*[@id='forms']/form/div[1]" position="after">
+            <!--性别-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="gender">性别</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                     <label class="radio-inline"><input type="radio" name="gender" value="1"/>男</label>
+                    <label class="radio-inline"><input type="radio" name="gender" value="2"/> 女</label>
+                </div>
+            </div>
+            <!--出生日期-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="birthday">出生日期</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <input type="text" class="form-control o_website_form_input o_website_form_date" name="birthday"
+                           required=""/>
+                    <!--<field class="form-control o_website_form_input" name="birthday"></field>-->
+                </div>
+            </div>
+            <!--婚姻状况-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="marital">婚姻</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <select name="marital"  class="form-control">
+                        <option value="0" selected="selected">单身</option>
+                        <option value="1">已婚</option>
+                        <option value="2">离异</option>
+                        <option value="3">丧偶</option>
+                    </select>
+
+                    <!--<label class="radio-inline"><input type="radio" name="marital" value="1"/>男</label>-->
+                    <!--<label class="radio-inline"><input type="radio" name="marital" value="2"/> 女</label>-->
+                    <!--<label class="radio-inline"><input type="radio" name="marital" value="3"/> 其他</label>-->
+
+                    <!--<field  class="form-control o_website_form_input" name="marital"></field>-->
+                </div>
+            </div>
+
+
+            <!--毕业院校-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="graduated_from">院校</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <input type="text" class="form-control o_website_form_input" name="graduated_from"
+                           required=""/>
+                    <!--<field  class="form-control o_website_form_input" name="graduated_from"></field>-->
+                </div>
+            </div>
+            <!--学历-->
+            <!--<div class="form-group form-field o_website_form_required_custom">-->
+                <!--<div class="col-md-3 col-sm-4 text-right">-->
+                    <!--<label class="control-label" for="type_id">学历</label>-->
+                <!--</div>-->
+                <!--<div class="col-md-7 col-sm-8">-->
+                    <!--&lt;!&ndash;<input type="search" class="form-control o_website_form_input" name="type_id"&ndash;&gt;-->
+                           <!--&lt;!&ndash;required=""/>&ndash;&gt;-->
+
+                    <!--<input type="search" class="form-control"-->
+                                        <!--name="type_id" placeholder="Search..."-->
+                                        <!--t-att-value="search or None"/>-->
+                                    <!--<button type="submit" class="btn btn-default">Search</button>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+
+        </xpath>
+
+        <xpath expr="//label[@for='partner_name']" position="replace">
+            <label class="control-label" for="partner_name">姓名</label>
+        </xpath>
+
+        <xpath expr="//label[@for='partner_phone']" position="replace">
+            <label class="control-label" for="partner_phone">电话</label>
+        </xpath>
+
+        <xpath expr="//label[@for='email_from']" position="replace">
+            <label class="control-label" for="email_from">邮箱</label>
+        </xpath>
+
+        <xpath expr="//label[@for='description']" position="replace">
+            <label class="control-label" for="description">简单说明</label>
+        </xpath>
+        <xpath expr="//label[@for='Resume']" position="replace">
+            <label class="control-label" for="Resume">简历</label>
+        </xpath>
+
+    </template>
+</odoo>

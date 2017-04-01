@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inherit_hr_applicant" model="ir.ui.view">
+            <field name="name">hr.applicant.form.inherit</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='description']" position="after">
+                    <field name="gender"/>
+                    <field name="marital"/>
+                    <field name="birthday"/>
+                    <field name="graduated_from"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
