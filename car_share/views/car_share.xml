@@ -83,7 +83,7 @@
                         <field name="leave_time" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 8:00:00')"/>
                         <field name="start_point"/>
                         <field name="end_point"/>
-                        <field name="wait_point"/>
+                        <!--<field name="wait_point"/>-->
                         <field name="mobile_phone"/>
                         <field name="person_num"/>
                         <field name="remark"/>
