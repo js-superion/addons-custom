@@ -6,11 +6,23 @@
             <field name="model">hr.applicant</field>
             <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='description']" position="after">
-                    <field name="gender"/>
-                    <field name="marital"/>
-                    <field name="birthday"/>
-                    <field name="graduated_from"/>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <label for="gender">性别</label>
+                    <div>
+                        <field name="gender"/>
+                    </div>
+                    <label for="marital">婚姻状况</label>
+                    <div>
+                        <field name="marital"/>
+                    </div>
+                    <label  for="birth_date">出生日期</label>
+                     <div>
+                         <field name="birth_date"/>
+                     </div>
+                    <label  for="graduated_from">毕业院校</label>
+                    <div>
+                        <field name="graduated_from"/>
+                    </div>
                 </xpath>
             </field>
         </record>

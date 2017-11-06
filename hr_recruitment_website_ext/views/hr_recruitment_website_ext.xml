@@ -21,7 +21,20 @@
                 <div class="col-md-7 col-sm-8">
                     <input type="text" class="form-control o_website_form_input o_website_form_date" name="birthday"
                            required=""/>
+                    <!--<input type="date" class="form-control o_website_form_input" name="birthday"-->
+                           <!--required=""/>-->
                     <!--<field class="form-control o_website_form_input" name="birthday"></field>-->
+                </div>
+            </div>
+            <!--籍贯-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="graduated_from">籍贯</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <input type="text" class="form-control o_website_form_input" name="birth_place"
+                           required=""/>
+                    <!--<field  class="form-control o_website_form_input" name="graduated_from"></field>-->
                 </div>
             </div>
             <!--婚姻状况-->
@@ -46,7 +59,7 @@
             </div>
 
 
-            <!--毕业院校-->
+            <!--院校-->
             <div class="form-group form-field o_website_form_required_custom">
                 <div class="col-md-3 col-sm-4 text-right">
                     <label class="control-label" for="graduated_from">院校</label>
@@ -57,21 +70,50 @@
                     <!--<field  class="form-control o_website_form_input" name="graduated_from"></field>-->
                 </div>
             </div>
+            <!--专业-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="graduated_from">专业</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <input type="text" class="form-control o_website_form_input" name="major"
+                           required=""/>
+                    <!--<field  class="form-control o_website_form_input" name="graduated_from"></field>-->
+                </div>
+            </div>
             <!--学历-->
-            <!--<div class="form-group form-field o_website_form_required_custom">-->
-                <!--<div class="col-md-3 col-sm-4 text-right">-->
-                    <!--<label class="control-label" for="type_id">学历</label>-->
-                <!--</div>-->
-                <!--<div class="col-md-7 col-sm-8">-->
-                    <!--&lt;!&ndash;<input type="search" class="form-control o_website_form_input" name="type_id"&ndash;&gt;-->
-                           <!--&lt;!&ndash;required=""/>&ndash;&gt;-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="type_id">学历</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <select name="type_id"  class="form-control">
+                        <option value="11" >初中</option>
+                        <option value="12">高中</option>
+                        <option value="13">专科</option>
+                        <option value="14" selected="selected">本科</option>
+                        <option value="15">硕士</option>
+                        <option value="16">博士</option>
+                    </select>
+                </div>
+            </div>
 
-                    <!--<input type="search" class="form-control"-->
-                                        <!--name="type_id" placeholder="Search..."-->
-                                        <!--t-att-value="search or None"/>-->
-                                    <!--<button type="submit" class="btn btn-default">Search</button>-->
-                <!--</div>-->
-            <!--</div>-->
+            <!--政治面貌-->
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="political_visage">政治面貌</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <select name="type_id"  class="form-control">
+                        <option value="1">中共党员</option>
+                        <option value="2"  selected="selected">中共预备党员</option>
+                        <option value="3">共青团员</option>
+                        <option value="4">群众</option>
+                        <option value="5">其他党派</option>
+                    </select>
+                </div>
+            </div>
+
 
 
 
@@ -81,9 +123,24 @@
             <label class="control-label" for="partner_name">姓名</label>
         </xpath>
 
-        <xpath expr="//label[@for='partner_phone']" position="replace">
-            <label class="control-label" for="partner_phone">电话</label>
+        <!--用手机，替换掉原有的电话-->
+        <xpath expr="//*[@id='forms']/form/div[8]"  position="replace">
+            <div class="form-group form-field o_website_form_required_custom">
+                <div class="col-md-3 col-sm-4 text-right">
+                    <label class="control-label" for="partner_mobile">手机</label>
+                </div>
+                <div class="col-md-7 col-sm-8">
+                    <input type="text" class="form-control o_website_form_input" name="partner_mobile"
+                           required=""/>
+                </div>
+            </div>
         </xpath>
+
+         <!--<attribute name='invisible'>1</attribute>-->
+
+        <!--<xpath expr="//label[@for='partner_phone']" position="replace">-->
+            <!--<label class="control-label" for="partner_phone">电话</label>-->
+        <!--</xpath>-->
 
         <xpath expr="//label[@for='email_from']" position="replace">
             <label class="control-label" for="email_from">邮箱</label>
